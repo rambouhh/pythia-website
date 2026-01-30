@@ -1,0 +1,70 @@
+---
+import Logo from './Logo.astro';
+
+const currentYear = new Date().getFullYear();
+
+const footerLinks = [
+  {
+    title: 'Services',
+    links: [
+      { href: '/services#accounting', label: 'Accounting' },
+      { href: '/services#payroll', label: 'Payroll' },
+      { href: '/services#tax', label: 'Tax Planning' },
+      { href: '/services#advisory', label: 'CFO Advisory' },
+      { href: '/services#intelligence', label: 'Business Intelligence' },
+    ]
+  },
+  {
+    title: 'Company',
+    links: [
+      { href: '/about', label: 'About Us' },
+      { href: '/contact', label: 'Contact' },
+    ]
+  }
+];
+---
+
+<footer class="bg-[var(--color-surface)] border-t border-[var(--color-border)]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Logo & Description -->
+      <div class="md:col-span-2">
+        <Logo size="md" class="mb-4" />
+        <p class="text-[var(--color-text-muted)] max-w-sm">
+          AI-enabled full-stack finance services for growing companies. Transform your data into strategic decisions.
+        </p>
+        <p class="mt-4 text-sm text-[var(--color-text-muted)]">
+          <a href="mailto:hello@pythiainsights.com" class="hover:text-[var(--color-primary)] transition-colors">
+            hello@pythiainsights.com
+          </a>
+        </p>
+      </div>
+      
+      <!-- Links -->
+      {footerLinks.map(section => (
+        <div>
+          <h4 class="font-semibold text-[var(--color-text)] mb-4">{section.title}</h4>
+          <ul class="space-y-2">
+            {section.links.map(link => (
+              <li>
+                <a 
+                  href={link.href}
+                  class="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors text-sm"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Bottom Bar -->
+    <div class="mt-12 pt-8 border-t border-[var(--color-border)]">
+      <p class="text-sm text-[var(--color-text-muted)] text-center">
+        © {currentYear} Pythia Insights. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

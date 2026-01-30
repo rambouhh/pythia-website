@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Button from '../components/Button.astro';
+
+const services = [
+  {
+    title: 'Accounting & Bookkeeping',
+    description: 'Real-time financials that tell your business story',
+    icon: 'calculator',
+    href: '/services#accounting'
+  },
+  {
+    title: 'Payroll Services',
+    description: 'Automated payroll that just works',
+    icon: 'users',
+    href: '/services#payroll'
+  },
+  {
+    title: 'Tax Planning & Prep',
+    description: 'Strategic tax planning, not just compliance',
+    icon: 'document',
+    href: '/services#tax'
+  },
+  {
+    title: 'CFO Advisory',
+    description: 'Fractional CFO services for growing companies',
+    icon: 'trending',
+    href: '/services#advisory'
+  },
+  {
+    title: 'Business Intelligence',
+    description: 'Custom dashboards that drive decisions',
+    icon: 'chart',
+    href: '/services#intelligence'
+  }
+];
+
+const features = [
+  {
+    title: 'AI-Enabled',
+    description: 'Technology handles the tedious. You get insights, not invoices.'
+  },
+  {
+    title: 'Human-Guided',
+    description: 'Real expertise from operators who\'ve scaled companies.'
+  },
+  {
+    title: 'Full-Stack',
+    description: 'One partner from bookkeeping to boardroom.'
+  }
+];
+
+const stats = [
+  '10+ Years Experience',
+  'VC & PE-Backed Specialists',
+  'Multiple Successful Exits',
+  'US-Based'
+];
+---
+
+<Layout title="Pythia Insights | Full-Stack Finance for Growing Companies">
+  <!-- Hero Section -->
+  <Hero 
+    headline="Full-stack finance for the data age"
+    subheadline="AI-enabled accounting, tax, payroll, and advisory services that transform your data into strategic decisions."
+    ctaText="Schedule a Consultation"
+    ctaHref="/contact"
+    secondaryText="Explore Services"
+    secondaryHref="#services"
+    showLogo={true}
+  />
+
+  <!-- Philosophy Section -->
+  <section class="py-20 bg-[var(--color-surface)]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <SectionHeading 
+        label="Our Philosophy"
+        title="Finance is the center of your data"
+      />
+      <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">
+        Every transaction tells a story. Every report reveals an opportunity. We don't just balance your books—we illuminate the path forward. Like the ancient Oracle of Delphi, we help you see what others miss.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section id="services" class="py-20 bg-[var(--color-bg)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        title="Our Services"
+        subtitle="Comprehensive financial solutions tailored for growing companies"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(service => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Pythia Section -->
+  <section class="py-20 bg-[var(--color-surface)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading 
+        title="Why Pythia?"
+        subtitle="A different approach to financial services"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {features.map(feature => (
+          <div class="text-center">
+            <h3 class="text-xl font-semibold text-[var(--color-text)] mb-3">{feature.title}</h3>
+            <p class="text-[var(--color-text-muted)]">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials Bar -->
+  <section class="py-12 bg-[var(--color-primary)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+        {stats.map(stat => (
+          <div class="text-white text-center">
+            <span class="font-medium text-lg">{stat}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-[var(--color-bg)]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-semibold text-[var(--color-text)] mb-4">
+        Ready for clarity?
+      </h2>
+      <p class="text-lg text-[var(--color-text-muted)] mb-8">
+        Let's discuss how Pythia can illuminate your financial path.
+      </p>
+      <Button href="/contact" size="lg">Get Started</Button>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,24 @@
+---
+interface Props {
+  class?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { class: className = '', size = 'md' } = Astro.props;
+
+const sizeClasses = {
+  sm: 'text-lg',
+  md: 'text-xl',
+  lg: 'text-2xl'
+};
+---
+
+<a href="/" class:list={["flex flex-col leading-tight", className]}>
+  <span class:list={["font-semibold tracking-wide text-[var(--color-primary)]", sizeClasses[size]]}>
+    PYTHIA
+  </span>
+  <span class:list={["font-light tracking-[0.2em] text-[var(--color-primary)] opacity-80", 
+    size === 'sm' ? 'text-xs' : size === 'md' ? 'text-sm' : 'text-base']}>
+    INSIGHTS
+  </span>
+</a>
