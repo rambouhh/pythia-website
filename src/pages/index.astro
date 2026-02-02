@@ -1,0 +1,308 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Home">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Strategic Financial Intelligence for Growing Businesses</h1>
+        <p class="hero-subtitle">Transform your financial data into actionable insights. We help businesses make smarter decisions with fractional CFO services, FP&A expertise, and modern financial operations.</p>
+        <div class="hero-cta">
+          <a href="/contact" class="btn btn-primary">Schedule a Consultation</a>
+          <a href="/services" class="btn btn-secondary">Explore Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="problem">
+    <div class="container">
+      <div class="section-header">
+        <h2>Growing Businesses Face Growing Complexity</h2>
+        <p>As your business scales, financial blind spots become expensive mistakes.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <span class="problem-icon">📊</span>
+          <h3>Data Overload</h3>
+          <p>Multiple systems, spreadsheets everywhere, but no clear picture of what's actually happening.</p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-icon">⏱️</span>
+          <h3>Reactive Decisions</h3>
+          <p>You're always looking backward. By the time you see the problem, the damage is done.</p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-icon">💰</span>
+          <h3>Resource Constraints</h3>
+          <p>A full-time CFO costs $300K+. But you need that expertise now, not someday.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="solution">
+    <div class="container">
+      <div class="solution-content">
+        <div class="solution-text">
+          <span class="section-label">The Pythia Approach</span>
+          <h2>CFO-Level Insight Without CFO-Level Cost</h2>
+          <p>We embed with your team to build the financial infrastructure you need—dashboards that tell a story, forecasts that drive action, and processes that scale with you.</p>
+          <ul class="solution-list">
+            <li><span class="check">✓</span> Real-time visibility into cash flow and margins</li>
+            <li><span class="check">✓</span> Forward-looking forecasts, not just historical reports</li>
+            <li><span class="check">✓</span> Strategic guidance for major decisions</li>
+            <li><span class="check">✓</span> Systems that grow with your business</li>
+          </ul>
+          <a href="/services" class="btn btn-primary">See How We Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="services-preview">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What We Do</span>
+        <h2>Full-Stack Financial Operations</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">◈</div>
+          <h3>Fractional CFO</h3>
+          <p>Strategic financial leadership and board-level insight on a flexible basis.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◈</div>
+          <h3>FP&A Services</h3>
+          <p>Budgeting, forecasting, and variance analysis that drives decisions.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◈</div>
+          <h3>BI & Dashboards</h3>
+          <p>Custom dashboards and reporting that tell the story behind your numbers.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◈</div>
+          <h3>Bookkeeping</h3>
+          <p>Clean, accurate books that serve as the foundation for everything else.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to See Clearly?</h2>
+        <p>Let's talk about where you are and where you want to go. No pitch, no pressure—just a conversation about your business.</p>
+        <a href="/contact" class="btn btn-primary">Start the Conversation</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .hero {
+    padding: 180px 0 120px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
+  }
+
+  .hero-content {
+    max-width: 800px;
+  }
+
+  .hero h1 {
+    color: var(--primary);
+    margin-bottom: 24px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    max-width: 600px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* Problem Section */
+  .problem {
+    background: white;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-header h2 {
+    color: var(--primary);
+    margin-bottom: 16px;
+  }
+
+  .section-header p {
+    color: var(--text-light);
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+  }
+
+  .problem-card {
+    padding: 32px;
+    background: var(--bg-alt);
+    border-radius: 12px;
+  }
+
+  .problem-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .problem-card h3 {
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
+
+  .problem-card p {
+    color: var(--text-light);
+  }
+
+  /* Solution Section */
+  .solution {
+    background: var(--bg-alt);
+  }
+
+  .solution-content {
+    max-width: 700px;
+  }
+
+  .solution-text h2 {
+    color: var(--primary);
+    margin-bottom: 20px;
+  }
+
+  .solution-text > p {
+    color: var(--text-light);
+    font-size: 1.125rem;
+    margin-bottom: 32px;
+  }
+
+  .solution-list {
+    list-style: none;
+    margin-bottom: 40px;
+  }
+
+  .solution-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+  }
+
+  .check {
+    color: var(--accent);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  /* Services Preview */
+  .services-preview {
+    background: white;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+
+  .service-card {
+    padding: 32px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+
+  .service-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .service-icon {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
+  .service-card h3 {
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
+
+  .service-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+  }
+
+  /* CTA Section */
+  .cta {
+    background: var(--primary);
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta h2 {
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .cta p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 140px 0 80px;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+  }
+</style>

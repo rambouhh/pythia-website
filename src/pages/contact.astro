@@ -1,0 +1,304 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact" description="Get in touch with Pythia Insights to discuss your financial needs">
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Get in Touch</span>
+      <h1>Let's Start a Conversation</h1>
+      <p class="page-intro">Tell us about your business and what you're trying to accomplish. We'll get back to you within one business day.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-form-wrapper">
+          <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success">
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden" style="display:none;">
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
+            
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" required placeholder="John Smith" />
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required placeholder="john@company.com" />
+            </div>
+            
+            <div class="form-group">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="company" placeholder="Acme Corp" />
+            </div>
+            
+            <div class="form-group">
+              <label for="revenue">Annual Revenue Range</label>
+              <select id="revenue" name="revenue">
+                <option value="">Select a range</option>
+                <option value="pre-revenue">Pre-revenue / Early Stage</option>
+                <option value="under-1m">Under $1M</option>
+                <option value="1m-5m">$1M - $5M</option>
+                <option value="5m-20m">$5M - $20M</option>
+                <option value="20m-plus">$20M+</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="service">What are you interested in?</label>
+              <select id="service" name="service">
+                <option value="">Select a service</option>
+                <option value="fractional-cfo">Fractional CFO</option>
+                <option value="fpa">FP&A Services</option>
+                <option value="bi-dashboards">BI & Dashboards</option>
+                <option value="bookkeeping">Bookkeeping & Accounting</option>
+                <option value="multiple">Multiple Services</option>
+                <option value="not-sure">Not Sure Yet</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Tell us about your situation *</label>
+              <textarea id="message" name="message" rows="5" required placeholder="What challenges are you facing? What are you hoping to achieve?"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          </form>
+        </div>
+        
+        <div class="contact-info">
+          <div class="info-card">
+            <h3>What Happens Next?</h3>
+            <ol class="next-steps">
+              <li>
+                <span class="step-number">1</span>
+                <div>
+                  <strong>We Review</strong>
+                  <p>We'll read through your message and do some initial research on your business.</p>
+                </div>
+              </li>
+              <li>
+                <span class="step-number">2</span>
+                <div>
+                  <strong>We Respond</strong>
+                  <p>Within one business day, you'll hear back with some initial thoughts and questions.</p>
+                </div>
+              </li>
+              <li>
+                <span class="step-number">3</span>
+                <div>
+                  <strong>We Talk</strong>
+                  <p>If it seems like there's a fit, we'll schedule a call to dig deeper.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          
+          <div class="info-card">
+            <h3>Prefer Email?</h3>
+            <p>Reach out directly at:</p>
+            <a href="mailto:hello@pythiainsights.com" class="email-link">hello@pythiainsights.com</a>
+          </div>
+          
+          <div class="info-card">
+            <h3>Not Ready to Talk Yet?</h3>
+            <p>That's okay. Take a look at our <a href="/services">services</a> or learn more <a href="/about">about us</a>. We'll be here when you're ready.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 180px 0 80px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
+  }
+
+  .page-hero h1 {
+    color: var(--primary);
+    margin-bottom: 20px;
+  }
+
+  .page-intro {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    max-width: 600px;
+  }
+
+  .section-label {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .contact-section {
+    padding: 80px 0;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-form-wrapper {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-weight: 500;
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 14px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: white;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .btn-full {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .info-card {
+    background: var(--bg-alt);
+    padding: 28px;
+    border-radius: 12px;
+  }
+
+  .info-card h3 {
+    color: var(--primary);
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+  }
+
+  .info-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+  }
+
+  .info-card a {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .info-card a:hover {
+    text-decoration: underline;
+  }
+
+  .next-steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .next-steps li {
+    display: flex;
+    gap: 16px;
+  }
+
+  .step-number {
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    color: var(--bg-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .next-steps strong {
+    color: var(--text);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .next-steps p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .email-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .page-hero {
+      padding: 140px 0 60px;
+    }
+
+    .contact-form-wrapper {
+      padding: 24px;
+    }
+  }
+</style>
