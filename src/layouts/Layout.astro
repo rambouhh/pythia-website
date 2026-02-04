@@ -2,9 +2,18 @@
 interface Props {
   title: string;
   description?: string;
+  canonicalUrl?: string;
+  schema?: object;
 }
 
-const { title, description = "Strategic financial intelligence for growing businesses" } = Astro.props;
+const { 
+  title, 
+  description = "Strategic financial intelligence for growing businesses",
+  canonicalUrl,
+  schema
+} = Astro.props;
+
+const fullTitle = title === "Fractional CFO & FP&A Services" ? `${title} | Pythia Insights` : `${title} | Pythia Insights`;
 ---
 
 <!doctype html>
@@ -13,11 +22,13 @@ const { title, description = "Strategic financial intelligence for growing busin
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>{title} | Pythia Insights</title>
+    <title>{fullTitle}</title>
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
   </head>
   <body>
     <nav class="nav">

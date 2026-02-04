@@ -1,13 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Pythia Insights",
+  "description": "Fractional CFO and FP&A services for growing businesses. Strategic financial planning, forecasting, and CFO-level guidance without the full-time cost.",
+  "url": "https://pythiainsights.com",
+  "serviceType": ["Fractional CFO", "FP&A Services", "Financial Planning", "Business Intelligence"],
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "priceRange": "$$",
+  "offers": {
+    "@type": "Offer",
+    "description": "Fractional CFO and FP&A services"
+  }
+};
 ---
 
-<Layout title="Home">
+<Layout 
+  title="Fractional CFO & FP&A Services" 
+  description="Get CFO-level financial strategy without the full-time cost. Pythia Insights offers fractional CFO, FP&A, and BI services for growing businesses. Book a free consultation."
+  canonicalUrl="https://pythiainsights.com/"
+  schema={schema}
+>
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1>Strategic Financial Intelligence for Growing Businesses</h1>
+        <h1>Fractional CFO & FP&A Services for Growing Businesses</h1>
         <p class="hero-subtitle">Transform your financial data into actionable insights. We help businesses make smarter decisions with fractional CFO services, FP&A expertise, and modern financial operations.</p>
         <div class="hero-cta">
           <a href="/contact" class="btn btn-primary">Schedule a Consultation</a>
