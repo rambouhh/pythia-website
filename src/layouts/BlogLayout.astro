@@ -1,0 +1,247 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    pubDate: Date;
+    author?: string;
+    category?: string;
+    tags?: string[];
+    seo?: {
+      title?: string;
+      description?: string;
+      canonical?: string;
+      keywords?: string[];
+    };
+  };
+}
+
+const { frontmatter } = Astro.props;
+const { title, description, pubDate, author = 'Pythia Insights', category, seo } = frontmatter;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "author": {
+    "@type": "Organization",
+    "name": author
+  },
+  "datePublished": pubDate.toISOString(),
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pythia Insights",
+    "url": "https://pythiainsights.com"
+  }
+};
+
+const pageTitle = seo?.title || `${title} | Pythia Insights`;
+const pageDescription = seo?.description || description;
+---
+
+<Layout 
+  title={pageTitle}
+  description={pageDescription}
+  schema={schema}
+>
+  <article class="blog-post">
+    <div class="container">
+      <header class="blog-header">
+        {category && <span class="blog-category">{category}</span>}
+        <h1>{title}</h1>
+        <p class="blog-meta">
+          Published {pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          {author && <span class="blog-author"> by {author}</span>}
+        </p>
+      </header>
+      <div class="blog-content">
+        <slot />
+      </div>
+      <footer class="blog-footer">
+        <div class="cta-box">
+          <h3>Ready to Talk Financials?</h3>
+          <p>Schedule a free consultation to discuss how Pythia Insights can help your business.</p>
+          <a href="/contact" class="btn btn-primary">Schedule a Consultation</a>
+        </div>
+        <div class="back-link">
+          <a href="/blog">← Back to Blog</a>
+        </div>
+      </footer>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .blog-post {
+    padding: 140px 0 80px;
+  }
+  
+  .blog-header {
+    margin-bottom: 3rem;
+    max-width: 800px;
+  }
+  
+  .blog-category {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  
+  .blog-header h1 {
+    font-size: 2.75rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+  
+  .blog-meta {
+    color: var(--text-light);
+    font-size: 0.95rem;
+  }
+
+  .blog-author {
+    color: var(--text-light);
+  }
+  
+  .blog-content {
+    max-width: 800px;
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+  
+  .blog-content :global(h2) {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    font-size: 1.75rem;
+  }
+  
+  .blog-content :global(h3) {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary);
+    font-size: 1.35rem;
+  }
+  
+  .blog-content :global(p) {
+    margin-bottom: 1.25rem;
+    color: var(--text);
+  }
+  
+  .blog-content :global(ul),
+  .blog-content :global(ol) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  .blog-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  
+  .blog-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+  }
+  
+  .blog-content :global(th),
+  .blog-content :global(td) {
+    padding: 0.875rem 1rem;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+  }
+  
+  .blog-content :global(th) {
+    background: var(--bg-alt);
+    font-weight: 600;
+    color: var(--primary);
+  }
+  
+  .blog-content :global(tr:hover td) {
+    background: #f8fafc;
+  }
+  
+  .blog-content :global(blockquote) {
+    border-left: 4px solid var(--accent);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--text-light);
+  }
+  
+  .blog-content :global(strong) {
+    color: var(--primary);
+  }
+
+  .blog-content :global(pre) {
+    background: var(--bg-alt);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .blog-content :global(code) {
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 0.9rem;
+  }
+  
+  .blog-footer {
+    margin-top: 4rem;
+    max-width: 800px;
+  }
+  
+  .cta-box {
+    background: var(--bg-alt);
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-box h3 {
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+  }
+  
+  .cta-box p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .back-link {
+    text-align: center;
+  }
+
+  .back-link a {
+    color: var(--primary);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .back-link a:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .blog-post {
+      padding: 120px 0 60px;
+    }
+    
+    .blog-header h1 {
+      font-size: 2rem;
+    }
+    
+    .blog-content {
+      font-size: 1rem;
+    }
+  }
+</style>

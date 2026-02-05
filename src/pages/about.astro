@@ -1,8 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "mainEntity": {
+    "@type": "ProfessionalService",
+    "name": "Pythia Insights",
+    "description": "Fractional CFO and financial planning services for growing businesses. We provide CFO-level financial strategy, FP&A, BI dashboards, and bookkeeping.",
+    "url": "https://pythiainsights.com",
+    "foundingDate": "2026",
+    "slogan": "Financial Clarity for the Modern Business",
+    "knowsAbout": [
+      "Fractional CFO Services",
+      "Financial Planning and Analysis",
+      "Business Intelligence",
+      "Bookkeeping",
+      "Cash Flow Management",
+      "Financial Forecasting"
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    }
+  }
+};
 ---
 
-<Layout title="About" description="Learn about Pythia Insights and our approach to financial intelligence">
+<Layout 
+  title="About" 
+  description="Learn about Pythia Insights and our approach to fractional CFO services and financial intelligence for growing businesses."
+  canonicalUrl="https://pythiainsights.com/about"
+  schema={schema}
+>
   <section class="page-hero">
     <div class="container">
       <span class="section-label">About Us</span>

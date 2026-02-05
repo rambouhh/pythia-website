@@ -1,0 +1,211 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    pubDate: Date;
+    author?: string;
+    category?: string;
+    tags?: string[];
+    seo?: {
+      title?: string;
+      description?: string;
+      canonical?: string;
+      keywords?: string[];
+    };
+  };
+}
+
+const { frontmatter } = Astro.props;
+const { title, description, pubDate, author = 'Pythia Insights', seo } = frontmatter;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "author": {
+    "@type": "Organization",
+    "name": author
+  },
+  "datePublished": pubDate.toISOString(),
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pythia Insights",
+    "url": "https://pythiainsights.com"
+  }
+};
+
+const pageTitle = seo?.title || `${title} | Pythia Insights`;
+const pageDescription = seo?.description || description;
+---
+
+<Layout 
+  title={pageTitle}
+  description={pageDescription}
+  schema={schema}
+>
+  <article class="guide">
+    <div class="container">
+      <header class="guide-header">
+        <span class="guide-category">Guide</span>
+        <h1>{title}</h1>
+        <p class="guide-meta">
+          Published {pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+      </header>
+      <div class="guide-content">
+        <slot />
+      </div>
+      <footer class="guide-footer">
+        <div class="cta-box">
+          <h3>Ready to Talk Financials?</h3>
+          <p>Schedule a free consultation to discuss how Pythia Insights can help your business.</p>
+          <a href="/contact" class="btn btn-primary">Schedule a Consultation</a>
+        </div>
+      </footer>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .guide {
+    padding: 140px 0 80px;
+  }
+  
+  .guide-header {
+    margin-bottom: 3rem;
+    max-width: 800px;
+  }
+  
+  .guide-category {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  
+  .guide-header h1 {
+    font-size: 2.75rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+  
+  .guide-meta {
+    color: var(--text-light);
+    font-size: 0.95rem;
+  }
+  
+  .guide-content {
+    max-width: 800px;
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+  
+  .guide-content :global(h2) {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    font-size: 1.75rem;
+  }
+  
+  .guide-content :global(h3) {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary);
+    font-size: 1.35rem;
+  }
+  
+  .guide-content :global(p) {
+    margin-bottom: 1.25rem;
+    color: var(--text);
+  }
+  
+  .guide-content :global(ul),
+  .guide-content :global(ol) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  .guide-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  
+  .guide-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+  }
+  
+  .guide-content :global(th),
+  .guide-content :global(td) {
+    padding: 0.875rem 1rem;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+  }
+  
+  .guide-content :global(th) {
+    background: var(--bg-alt);
+    font-weight: 600;
+    color: var(--primary);
+  }
+  
+  .guide-content :global(tr:hover td) {
+    background: #f8fafc;
+  }
+  
+  .guide-content :global(blockquote) {
+    border-left: 4px solid var(--accent);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--text-light);
+  }
+  
+  .guide-content :global(strong) {
+    color: var(--primary);
+  }
+  
+  .guide-footer {
+    margin-top: 4rem;
+    max-width: 800px;
+  }
+  
+  .cta-box {
+    background: var(--bg-alt);
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .cta-box h3 {
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+  }
+  
+  .cta-box p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .guide {
+      padding: 120px 0 60px;
+    }
+    
+    .guide-header h1 {
+      font-size: 2rem;
+    }
+    
+    .guide-content {
+      font-size: 1rem;
+    }
+  }
+</style>
