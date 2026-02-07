@@ -1,0 +1,675 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "The Stack | Pythia Insights",
+  "description": "The tools and technologies we use to deliver code-native finance. Opinionated choices, battle-tested in production.",
+  "url": "https://pythiainsights.com/stack"
+};
+---
+
+<Layout 
+  title="The Stack" 
+  description="The tools and technologies we use to deliver code-native finance. Opinionated choices, battle-tested in production."
+  canonicalUrl="https://pythiainsights.com/stack"
+  schema={schema}
+>
+
+<section class="hero-mini">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content reveal">
+    <div class="hero-tag">// THE STACK</div>
+    <h1>Opinionated tools.<br><span class="accent">Intentional choices.</span></h1>
+    <p class="hero-desc">
+      Every tool selected for a reason. Every integration tested in production.
+      This is what "code-native finance" actually means.
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="section">
+  <div class="stack-philosophy reveal">
+    <div class="philosophy-card">
+      <div class="philosophy-icon">⊞</div>
+      <h3>Open Source First</h3>
+      <p>Prefer tools that don't lock you in. DuckDB over Snowflake for most workloads. Evidence over Tableau. Your data, your models, your code.</p>
+    </div>
+    <div class="philosophy-card">
+      <div class="philosophy-icon">⟁</div>
+      <h3>Version Control Everything</h3>
+      <p>If it can't live in Git, it probably shouldn't exist. Models, dashboards, pipelines—all tracked, diffed, and reversible.</p>
+    </div>
+    <div class="philosophy-card">
+      <div class="philosophy-icon">◎</div>
+      <h3>Boring Where It Counts</h3>
+      <p>QuickBooks is fine. Gusto works. Don't overthink the foundation. Save the innovation for the analysis layer.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="section">
+  <div class="reveal">
+    <div class="section-label">// Foundation Layer</div>
+    <div class="section-title">The unglamorous stuff that makes everything else possible.</div>
+    <p class="section-desc">
+      Clean books are a prerequisite, not a deliverable. These tools keep the foundation solid.
+    </p>
+  </div>
+
+  <div class="stack-grid reveal">
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">📚</span>
+        <h3>QuickBooks Online</h3>
+        <span class="stack-badge foundation">FOUNDATION</span>
+      </div>
+      <p>General ledger, AP/AR, bank reconciliation. The boring center of every financial stack.</p>
+      <div class="stack-use">
+        <span class="use-label">Use case:</span> Primary GL for clients under $20M revenue
+      </div>
+    </div>
+
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">👥</span>
+        <h3>Gusto</h3>
+        <span class="stack-badge foundation">FOUNDATION</span>
+      </div>
+      <p>Payroll, benefits, compliance. Handles state registrations, tax filings, and HR basics.</p>
+      <div class="stack-use">
+        <span class="use-label">Use case:</span> Payroll for US-based teams, 1-200 employees
+      </div>
+    </div>
+
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">💳</span>
+        <h3>Ramp / Brex</h3>
+        <span class="stack-badge foundation">FOUNDATION</span>
+      </div>
+      <p>Corporate cards with automatic categorization, receipt capture, and spending controls.</p>
+      <div class="stack-use">
+        <span class="use-label">Use case:</span> Expense management, department budgets
+      </div>
+    </div>
+
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">📄</span>
+        <h3>Bill.com</h3>
+        <span class="stack-badge foundation">FOUNDATION</span>
+      </div>
+      <p>AP automation, approval workflows, vendor payment scheduling. Beats manual check runs.</p>
+      <div class="stack-use">
+        <span class="use-label">Use case:</span> Vendor management, approval chains
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="section">
+  <div class="reveal">
+    <div class="section-label">// Analysis Layer</div>
+    <div class="section-title">Where data becomes insight.</div>
+    <p class="section-desc">
+      The modeling and transformation layer. Python and SQL working together.
+    </p>
+  </div>
+
+  <div class="stack-grid reveal">
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">🐍</span>
+        <h3>Python + Pandas</h3>
+        <span class="stack-badge analysis">ANALYSIS</span>
+      </div>
+      <p>The core modeling language. Operating models, cohort analysis, scenario engines—all in Python.</p>
+      <div class="code-snippet">
+        <pre><code><span class="cm"># Bottoms-up MRR proration</span>
+<span class="kw">def</span> <span class="fn">prorate_mrr</span>(contracts_df):
+    <span class="kw">return</span> contracts_df.assign(
+        prorated_mrr=<span class="kw">lambda</span> x: x.mrr * 
+            x.days_active / x.days_in_month
+    )</code></pre>
+      </div>
+    </div>
+
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">🦆</span>
+        <h3>DuckDB</h3>
+        <span class="stack-badge analysis">ANALYSIS</span>
+      </div>
+      <p>In-process SQL database. Handles gigabytes of data without a server. Perfect for financial modeling.</p>
+      <div class="code-snippet">
+        <pre><code><span class="cm">-- Fast aggregation, no infrastructure</span>
+<span class="kw">SELECT</span> cohort_month, 
+       <span class="fn">SUM</span>(mrr) <span class="kw">as</span> total_mrr
+<span class="kw">FROM</span> read_parquet(<span class="str">'contracts/*.parquet'</span>)
+<span class="kw">GROUP BY</span> <span class="num">1</span></code></pre>
+      </div>
+    </div>
+
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">🔧</span>
+        <h3>dbt</h3>
+        <span class="stack-badge analysis">ANALYSIS</span>
+      </div>
+      <p>SQL transformations as code. Version-controlled, tested, documented. The backbone of the data pipeline.</p>
+      <div class="stack-use">
+        <span class="use-label">Use case:</span> Staging tables, marts, incremental models
+      </div>
+    </div>
+
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">🗄️</span>
+        <h3>PostgreSQL</h3>
+        <span class="stack-badge analysis">ANALYSIS</span>
+      </div>
+      <p>When you need a real database. Production analytics, shared data stores, API backends.</p>
+      <div class="stack-use">
+        <span class="use-label">Use case:</span> Persistent storage, multi-user access
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="section">
+  <div class="reveal">
+    <div class="section-label">// Intelligence Layer</div>
+    <div class="section-title">AI and ML where it matters.</div>
+    <p class="section-desc">
+      Machine learning for prediction, LLMs for augmentation. Not AI-for-AI's-sake.
+    </p>
+  </div>
+
+  <div class="stack-grid reveal">
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">🤖</span>
+        <h3>Claude API</h3>
+        <span class="stack-badge intelligence">INTELLIGENCE</span>
+      </div>
+      <p>Natural language on your data. Automated variance commentary, anomaly explanations, data quality checks.</p>
+      <div class="code-snippet">
+        <pre><code><span class="cm"># AI-generated variance commentary</span>
+response = claude.messages.create(
+    model=<span class="str">"claude-sonnet-4-20250514"</span>,
+    messages=[{'{'}
+        <span class="str">"role"</span>: <span class="str">"user"</span>,
+        <span class="str">"content"</span>: f<span class="str">"Explain: {'{'}delta{'}'}"</span>
+    {'}'}]
+)</code></pre>
+      </div>
+    </div>
+
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">📈</span>
+        <h3>scikit-learn</h3>
+        <span class="stack-badge intelligence">INTELLIGENCE</span>
+      </div>
+      <p>Classical ML for structured data. Churn prediction, revenue drivers, anomaly detection.</p>
+      <div class="code-snippet">
+        <pre><code><span class="cm"># Churn risk scoring</span>
+model = RandomForestClassifier()
+model.fit(X_train, y_churn)
+risk_scores = model.predict_proba(X_new)[:,<span class="num">1</span>]</code></pre>
+      </div>
+    </div>
+
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">🚀</span>
+        <h3>XGBoost</h3>
+        <span class="stack-badge intelligence">INTELLIGENCE</span>
+      </div>
+      <p>Gradient boosting for when accuracy matters most. Demand forecasting, driver analysis.</p>
+      <div class="stack-use">
+        <span class="use-label">Use case:</span> Revenue forecasting with many features
+      </div>
+    </div>
+
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">💻</span>
+        <h3>Claude Code</h3>
+        <span class="stack-badge intelligence">INTELLIGENCE</span>
+      </div>
+      <p>AI pair programmer. Accelerates model development, automates boilerplate, catches bugs.</p>
+      <div class="stack-use">
+        <span class="use-label">Use case:</span> Development velocity, code review
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="section">
+  <div class="reveal">
+    <div class="section-label">// Visualization Layer</div>
+    <div class="section-title">Dashboards built like software.</div>
+    <p class="section-desc">
+      BI tools that deploy from Git, version control like code, and scale without manual work.
+    </p>
+  </div>
+
+  <div class="stack-grid reveal">
+    <div class="stack-item featured">
+      <div class="stack-item-header">
+        <span class="stack-icon">📊</span>
+        <h3>Evidence.dev</h3>
+        <span class="stack-badge viz">VISUALIZATION</span>
+      </div>
+      <p>Markdown + SQL = production dashboards. Version controlled, deploys on commit, looks beautiful.</p>
+      <div class="code-snippet">
+        <pre><code><span class="cm">```sql monthly_arr</span>
+<span class="kw">SELECT</span> month, <span class="fn">SUM</span>(mrr) * <span class="num">12</span> <span class="kw">as</span> arr
+<span class="kw">FROM</span> contracts <span class="kw">GROUP BY</span> <span class="num">1</span>
+<span class="cm">```</span>
+
+&lt;LineChart data={monthly_arr} x=month y=arr/&gt;</code></pre>
+      </div>
+    </div>
+
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">⚡</span>
+        <h3>Rill</h3>
+        <span class="stack-badge viz">VISUALIZATION</span>
+      </div>
+      <p>Blazing fast exploration. OLAP cube on your laptop. Perfect for ad-hoc analysis.</p>
+      <div class="stack-use">
+        <span class="use-label">Use case:</span> Exploratory analysis, fast iteration
+      </div>
+    </div>
+
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">🎯</span>
+        <h3>Streamlit</h3>
+        <span class="stack-badge viz">VISUALIZATION</span>
+      </div>
+      <p>Python apps in minutes. Internal tools, scenario models, interactive reports.</p>
+      <div class="stack-use">
+        <span class="use-label">Use case:</span> Custom tools, what-if models
+      </div>
+    </div>
+
+    <div class="stack-item">
+      <div class="stack-item-header">
+        <span class="stack-icon">📈</span>
+        <h3>Power BI</h3>
+        <span class="stack-badge viz">VISUALIZATION</span>
+      </div>
+      <p>When the client needs Microsoft. Enterprise integration, familiar interface.</p>
+      <div class="stack-use">
+        <span class="use-label">Use case:</span> Enterprise clients, Excel users
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="section">
+  <div class="reveal">
+    <div class="section-label">// Infrastructure</div>
+    <div class="section-title">The invisible plumbing.</div>
+    <p class="section-desc">
+      Deployment, version control, and orchestration.
+    </p>
+  </div>
+
+  <div class="infra-grid reveal">
+    <div class="infra-item">
+      <span class="infra-icon">🐙</span>
+      <h4>GitHub</h4>
+      <p>All code, all models, all dashboards</p>
+    </div>
+    <div class="infra-item">
+      <span class="infra-icon">▲</span>
+      <h4>Vercel</h4>
+      <p>Dashboard deployments</p>
+    </div>
+    <div class="infra-item">
+      <span class="infra-icon">☁️</span>
+      <h4>Cloudflare</h4>
+      <p>Static sites, edge caching</p>
+    </div>
+    <div class="infra-item">
+      <span class="infra-icon">🔄</span>
+      <h4>GitHub Actions</h4>
+      <p>CI/CD, scheduled jobs</p>
+    </div>
+    <div class="infra-item">
+      <span class="infra-icon">🐳</span>
+      <h4>Docker</h4>
+      <p>Reproducible environments</p>
+    </div>
+    <div class="infra-item">
+      <span class="infra-icon">📦</span>
+      <h4>uv + rye</h4>
+      <p>Python package management</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <h2>Ready to see this stack in action?</h2>
+  <p>Let's talk about upgrading your financial infrastructure.</p>
+  <a href="/contact" class="btn-primary">Schedule a Discovery Call</a>
+</section>
+
+</Layout>
+
+<style>
+  .hero-mini {
+    padding: 10rem 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(30, 30, 42, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30, 30, 42, 0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 70%);
+  }
+
+  .hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-mini h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .accent { color: var(--accent); }
+
+  .hero-desc {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 540px;
+    line-height: 1.7;
+  }
+
+  /* Philosophy cards */
+  .stack-philosophy {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .philosophy-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.4s;
+  }
+
+  .philosophy-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  .philosophy-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .philosophy-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .philosophy-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  /* Stack grid */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .stack-item {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.4s;
+  }
+
+  .stack-item:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  .stack-item.featured {
+    grid-column: span 2;
+    border-color: var(--accent);
+  }
+
+  .stack-item-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .stack-icon {
+    font-size: 1.5rem;
+  }
+
+  .stack-item h3 {
+    font-size: 1.1rem;
+    flex-grow: 1;
+  }
+
+  .stack-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .stack-badge.foundation {
+    background: var(--accent-dim);
+    color: var(--accent);
+    border: 1px solid rgba(0, 229, 160, 0.15);
+  }
+
+  .stack-badge.analysis {
+    background: rgba(34, 211, 238, 0.08);
+    color: var(--cyan);
+    border: 1px solid rgba(34, 211, 238, 0.15);
+  }
+
+  .stack-badge.intelligence {
+    background: rgba(139, 92, 246, 0.08);
+    color: var(--violet);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+  }
+
+  .stack-badge.viz {
+    background: rgba(245, 158, 11, 0.08);
+    color: var(--amber);
+    border: 1px solid rgba(245, 158, 11, 0.15);
+  }
+
+  .stack-item > p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .stack-use {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .use-label {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    margin-right: 0.5rem;
+  }
+
+  /* Code snippets */
+  .code-snippet {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    overflow-x: auto;
+  }
+
+  .code-snippet pre {
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    line-height: 1.7;
+  }
+
+  .code-snippet .kw { color: var(--violet); }
+  .code-snippet .fn { color: #60a5fa; }
+  .code-snippet .str { color: var(--accent); }
+  .code-snippet .cm { color: var(--text-dim); font-style: italic; }
+  .code-snippet .num { color: var(--amber); }
+
+  /* Infrastructure grid */
+  .infra-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .infra-item {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .infra-item:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-2px);
+  }
+
+  .infra-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .infra-item h4 {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .infra-item p {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 8rem 3rem;
+    position: relative;
+  }
+
+  .cta-glow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+    filter: blur(100px);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .cta-section p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .stack-philosophy { grid-template-columns: 1fr; }
+    .stack-grid { grid-template-columns: 1fr; }
+    .stack-item.featured { grid-column: span 1; }
+    .infra-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .hero-mini { padding: 8rem 1.5rem 3rem; }
+    .infra-grid { grid-template-columns: repeat(2, 1fr); }
+    .cta-section { padding: 4rem 1.5rem; }
+  }
+</style>

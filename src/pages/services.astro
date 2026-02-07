@@ -3,431 +3,611 @@ import Layout from '../layouts/Layout.astro';
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Pythia Insights Services",
-  "description": "Full-stack financial operations for growing businesses",
-  "itemListElement": [
-    {
-      "@type": "Service",
-      "position": 1,
-      "name": "Fractional CFO",
-      "description": "Strategic financial leadership without the full-time commitment. Board presentations, cash flow optimization, M&A support, and financial policy development.",
-      "provider": {
-        "@type": "ProfessionalService",
-        "name": "Pythia Insights",
-        "url": "https://pythiainsights.com"
-      },
-      "serviceType": "Fractional CFO Services",
-      "areaServed": "United States"
-    },
-    {
-      "@type": "Service",
-      "position": 2,
-      "name": "FP&A Services",
-      "description": "Financial planning and analysis including budgeting, rolling forecasts, variance analysis, KPI tracking, and scenario planning.",
-      "provider": {
-        "@type": "ProfessionalService",
-        "name": "Pythia Insights",
-        "url": "https://pythiainsights.com"
-      },
-      "serviceType": "Financial Planning & Analysis",
-      "areaServed": "United States"
-    },
-    {
-      "@type": "Service",
-      "position": 3,
-      "name": "BI & Dashboards",
-      "description": "Custom executive dashboards, data integration, automated reporting, self-service analytics, and data warehouse design.",
-      "provider": {
-        "@type": "ProfessionalService",
-        "name": "Pythia Insights",
-        "url": "https://pythiainsights.com"
-      },
-      "serviceType": "Business Intelligence",
-      "areaServed": "United States"
-    },
-    {
-      "@type": "Service",
-      "position": 4,
-      "name": "Bookkeeping & Accounting",
-      "description": "Full-service bookkeeping, account reconciliation, payroll processing, month-end close, and audit preparation.",
-      "provider": {
-        "@type": "ProfessionalService",
-        "name": "Pythia Insights",
-        "url": "https://pythiainsights.com"
-      },
-      "serviceType": "Bookkeeping Services",
-      "areaServed": "United States"
-    }
-  ]
+  "@type": "Service",
+  "name": "Full Stack Finance Services",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Pythia Insights"
+  },
+  "description": "From clean books to AI-native BI. Bookkeeping, FP&A, financial modeling, and custom dashboards.",
+  "url": "https://pythiainsights.com/services"
 };
 ---
 
 <Layout 
   title="Services" 
-  description="Fractional CFO, FP&A, bookkeeping, and BI services for growing businesses. Full-stack financial operations for companies ready to scale."
+  description="Full Stack Finance — bookkeeping, FP&A, financial modeling, and AI-native BI. One consultant, entire stack."
   canonicalUrl="https://pythiainsights.com/services"
   schema={schema}
 >
-  <section class="page-hero">
-    <div class="container">
-      <span class="section-label">Our Services</span>
-      <h1>Full-Stack Financial Operations</h1>
-      <p class="page-intro">From daily bookkeeping to strategic planning, we provide the financial infrastructure growing businesses need to scale with confidence.</p>
-    </div>
-  </section>
 
-  <section class="services-detail">
-    <div class="container">
-      <div class="service-block">
-        <div class="service-header">
-          <div class="service-number">01</div>
-          <div>
-            <h2>Fractional CFO</h2>
-            <p class="service-tagline">Strategic leadership without the full-time commitment</p>
-          </div>
-        </div>
-        <div class="service-content">
-          <p>Get the financial leadership your business needs at a fraction of the cost. We become a true partner in your growth, providing strategic guidance on everything from fundraising to operational efficiency.</p>
-          <ul class="service-features">
-            <li>Strategic financial planning and scenario modeling</li>
-            <li>Board and investor presentation preparation</li>
-            <li>Cash flow optimization and working capital management</li>
-            <li>M&A due diligence and transaction support</li>
-            <li>Financial policy development and risk management</li>
-          </ul>
-          <p class="service-ideal"><strong>Ideal for:</strong> Startups post-seed, growth-stage companies, businesses preparing for fundraising or exit</p>
-        </div>
-      </div>
+<section class="hero-mini">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content reveal">
+    <div class="hero-tag">// SERVICES</div>
+    <h1>Full Stack Finance.<br><span class="accent">One consultant.</span></h1>
+    <p class="hero-desc">
+      From foundation to intelligence—bookkeeping through AI-native BI.
+      Flexible engagement, complete capability.
+    </p>
+  </div>
+</section>
 
-      <div class="service-block">
-        <div class="service-header">
-          <div class="service-number">02</div>
-          <div>
-            <h2>FP&A Services</h2>
-            <p class="service-tagline">Turn data into decisions</p>
-          </div>
-        </div>
-        <div class="service-content">
-          <p>We build the analytical foundation that transforms how you run your business. From budgets that actually get used to forecasts that drive action, our FP&A services make financial planning a competitive advantage.</p>
-          <ul class="service-features">
-            <li>Annual budgeting and rolling forecast processes</li>
-            <li>Monthly variance analysis and management reporting</li>
-            <li>KPI development and performance tracking</li>
-            <li>Scenario planning and sensitivity analysis</li>
-            <li>Department and project-level P&L management</li>
-          </ul>
-          <p class="service-ideal"><strong>Ideal for:</strong> Companies with $2M+ revenue seeking structured financial planning</p>
-        </div>
-      </div>
+<div class="section-divider"></div>
 
-      <div class="service-block">
-        <div class="service-header">
-          <div class="service-number">03</div>
-          <div>
-            <h2>BI & Dashboards</h2>
-            <p class="service-tagline">See your business in real time</p>
-          </div>
-        </div>
-        <div class="service-content">
-          <p>Stop waiting for month-end to know how you're doing. We build custom dashboards and reporting solutions that give you real-time visibility into the metrics that matter most.</p>
-          <ul class="service-features">
-            <li>Custom executive dashboards and scorecards</li>
-            <li>Data integration across multiple systems</li>
-            <li>Automated reporting and alert systems</li>
-            <li>Self-service analytics for your team</li>
-            <li>Data modeling and warehouse design</li>
-          </ul>
-          <p class="service-ideal"><strong>Ideal for:</strong> Data-driven companies needing unified visibility across systems</p>
-        </div>
-      </div>
+<!-- Foundation Services -->
+<section class="section" id="foundation">
+  <div class="reveal">
+    <div class="section-label">// Layer 01</div>
+    <div class="section-title">Foundation</div>
+    <p class="section-desc">
+      The unglamorous work that makes everything else possible.
+      Clean books. Accurate payroll. Solid compliance.
+    </p>
+  </div>
 
-      <div class="service-block">
-        <div class="service-header">
-          <div class="service-number">04</div>
-          <div>
-            <h2>Bookkeeping & Accounting</h2>
-            <p class="service-tagline">The foundation everything else builds on</p>
-          </div>
-        </div>
-        <div class="service-content">
-          <p>Clean, accurate books aren't just about compliance—they're the foundation for every good financial decision. We handle the day-to-day so you can focus on running your business.</p>
-          <ul class="service-features">
-            <li>Full-service bookkeeping and account reconciliation</li>
-            <li>Accounts payable and receivable management</li>
-            <li>Payroll processing and tax filings</li>
-            <li>Month-end close and financial statement preparation</li>
-            <li>Audit preparation and compliance support</li>
-          </ul>
-          <p class="service-ideal"><strong>Ideal for:</strong> Any business that wants accurate, timely financials without the headache</p>
-        </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-icon">📚</div>
+      <h3>Bookkeeping</h3>
+      <p>Monthly close, bank reconciliation, categorization. The foundation of every financial stack. Clean books that scale.</p>
+      <ul class="service-features">
+        <li>Monthly close & reconciliation</li>
+        <li>Accounts payable & receivable</li>
+        <li>Multi-entity consolidation</li>
+        <li>Audit-ready documentation</li>
+      </ul>
+      <div class="service-tools">
+        <span>QuickBooks Online</span>
+        <span>Xero</span>
+        <span>Bill.com</span>
       </div>
     </div>
-  </section>
 
-  <section class="how-we-work">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">How We Work</span>
-        <h2>Engagement Models</h2>
-      </div>
-      <div class="engagement-grid">
-        <div class="engagement-card">
-          <h3>Retainer</h3>
-          <p class="engagement-desc">Ongoing partnership with dedicated hours each month. Best for continuous CFO/FP&A support.</p>
-          <ul class="engagement-details">
-            <li>Predictable monthly cost</li>
-            <li>Priority access and response</li>
-            <li>Deep understanding of your business</li>
-          </ul>
-        </div>
-        <div class="engagement-card featured">
-          <div class="featured-badge">Most Popular</div>
-          <h3>Project-Based</h3>
-          <p class="engagement-desc">Defined scope for specific initiatives. Perfect for system implementations, model builds, or process redesigns.</p>
-          <ul class="engagement-details">
-            <li>Clear deliverables and timeline</li>
-            <li>Fixed project pricing</li>
-            <li>Knowledge transfer included</li>
-          </ul>
-        </div>
-        <div class="engagement-card">
-          <h3>Advisory</h3>
-          <p class="engagement-desc">Light-touch strategic guidance. Ideal when you have a team but need expert perspective.</p>
-          <ul class="engagement-details">
-            <li>Monthly strategy sessions</li>
-            <li>On-call for key decisions</li>
-            <li>External validation and ideas</li>
-          </ul>
-        </div>
+    <div class="service-card">
+      <div class="service-icon">👥</div>
+      <h3>Payroll</h3>
+      <p>Processing, tax filings, state registrations. Benefits administration and compliance handled.</p>
+      <ul class="service-features">
+        <li>Semi-monthly & bi-weekly processing</li>
+        <li>Multi-state registrations</li>
+        <li>Benefits administration</li>
+        <li>1099 contractor management</li>
+      </ul>
+      <div class="service-tools">
+        <span>Gusto</span>
+        <span>Rippling</span>
+        <span>Deel</span>
       </div>
     </div>
-  </section>
 
-  <section class="cta">
-    <div class="container">
-      <div class="cta-content">
-        <h2>Let's Find the Right Fit</h2>
-        <p>Every business is different. Tell us about yours and we'll design an engagement that actually makes sense.</p>
-        <a href="/contact" class="btn btn-primary">Get in Touch</a>
+    <div class="service-card">
+      <div class="service-icon">📋</div>
+      <h3>Tax Coordination</h3>
+      <p>Not your CPA, but their best friend. Quarterly estimates, 1099s, and keeping your books CPA-ready.</p>
+      <ul class="service-features">
+        <li>Quarterly estimated payments</li>
+        <li>1099 preparation & filing</li>
+        <li>CPA coordination & support</li>
+        <li>Tax provision estimates</li>
+      </ul>
+      <div class="service-tools">
+        <span>Partner CPAs</span>
+        <span>Tax provisioning</span>
       </div>
     </div>
-  </section>
+
+    <div class="service-card">
+      <div class="service-icon">💰</div>
+      <h3>Cash Management</h3>
+      <p>13-week cash flow forecasts, runway tracking, vendor payment optimization.</p>
+      <ul class="service-features">
+        <li>Rolling 13-week forecast</li>
+        <li>Runway monitoring</li>
+        <li>Payment timing optimization</li>
+        <li>Treasury management basics</li>
+      </ul>
+      <div class="service-tools">
+        <span>Ramp</span>
+        <span>Mercury</span>
+        <span>Custom models</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Analysis Services -->
+<section class="section" id="analysis">
+  <div class="reveal">
+    <div class="section-label">// Layer 02</div>
+    <div class="section-title">Analysis</div>
+    <p class="section-desc">
+      Budgeting, forecasting, and scenario planning.
+      Strategic insight from clean data.
+    </p>
+  </div>
+
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <h3>FP&A</h3>
+      <p>Full financial planning and analysis. Budgeting, forecasting, variance analysis, and board reporting.</p>
+      <ul class="service-features">
+        <li>Annual budget development</li>
+        <li>Monthly/quarterly forecasts</li>
+        <li>Variance analysis & commentary</li>
+        <li>KPI definition & tracking</li>
+      </ul>
+      <div class="service-tools">
+        <span>Python</span>
+        <span>dbt</span>
+        <span>Evidence</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎯</div>
+      <h3>Scenario Modeling</h3>
+      <p>What-if analysis that actually answers questions. Sensitivity testing, scenario planning, decision support.</p>
+      <ul class="service-features">
+        <li>Bottoms-up revenue models</li>
+        <li>Headcount planning</li>
+        <li>Pricing sensitivity analysis</li>
+        <li>Fundraising scenarios</li>
+      </ul>
+      <div class="service-tools">
+        <span>Python</span>
+        <span>Streamlit</span>
+        <span>Interactive models</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">📑</div>
+      <h3>Board Decks</h3>
+      <p>Investor-ready financials. KPI packages, ARR waterfalls, cohort analysis—the metrics that matter.</p>
+      <ul class="service-features">
+        <li>Monthly board packages</li>
+        <li>Investor update templates</li>
+        <li>ARR/MRR waterfall analysis</li>
+        <li>Cohort & retention metrics</li>
+      </ul>
+      <div class="service-tools">
+        <span>Evidence</span>
+        <span>Google Slides</span>
+        <span>Figma</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🔍</div>
+      <h3>Due Diligence Support</h3>
+      <p>M&A, fundraising, or audit prep. Data room organization, QofE assistance, financial deep-dives.</p>
+      <ul class="service-features">
+        <li>Data room organization</li>
+        <li>QofE workpaper prep</li>
+        <li>Financial diligence responses</li>
+        <li>Pro forma modeling</li>
+      </ul>
+      <div class="service-tools">
+        <span>Deal experience</span>
+        <span>QofE support</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Intelligence Services -->
+<section class="section" id="intelligence">
+  <div class="reveal">
+    <div class="section-label">// Layer 03</div>
+    <div class="section-title">Intelligence</div>
+    <p class="section-desc">
+      Python models, machine learning, AI-native BI.
+      The tech differentiator.
+    </p>
+  </div>
+
+  <div class="services-grid reveal">
+    <div class="service-card featured">
+      <div class="service-icon">🐍</div>
+      <h3>Custom Python Models</h3>
+      <p>Operating models built in code, not Excel. Version-controlled, testable, auditable. ARR waterfalls, cohort analysis, revenue drivers.</p>
+      <ul class="service-features">
+        <li>Bottoms-up revenue models</li>
+        <li>Cohort-based ARR forecasting</li>
+        <li>Commission & comp modeling</li>
+        <li>Unit economics calculators</li>
+      </ul>
+      <div class="service-tools">
+        <span>Python</span>
+        <span>Pandas</span>
+        <span>DuckDB</span>
+      </div>
+    </div>
+
+    <div class="service-card featured">
+      <div class="service-icon">📈</div>
+      <h3>AI-Native BI</h3>
+      <p>Dashboards built as code. Deploy on commit, auto-refresh, version controlled. Not your grandfather's BI.</p>
+      <ul class="service-features">
+        <li>Evidence.dev dashboards</li>
+        <li>Rill OLAP exploration</li>
+        <li>Streamlit internal tools</li>
+        <li>Real-time KPI monitoring</li>
+      </ul>
+      <div class="service-tools">
+        <span>Evidence</span>
+        <span>Rill</span>
+        <span>Streamlit</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🤖</div>
+      <h3>ML Forecasting</h3>
+      <p>Machine learning for financial prediction. Churn models, demand forecasting, revenue driver analysis.</p>
+      <ul class="service-features">
+        <li>Churn risk scoring</li>
+        <li>Revenue driver trees</li>
+        <li>Demand forecasting</li>
+        <li>Anomaly detection</li>
+      </ul>
+      <div class="service-tools">
+        <span>scikit-learn</span>
+        <span>XGBoost</span>
+        <span>Prophet</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <h3>Automation & Integration</h3>
+      <p>Automated report generation, data pipelines, system integrations. Less manual work, more insight.</p>
+      <ul class="service-features">
+        <li>API integrations</li>
+        <li>Automated report delivery</li>
+        <li>Data quality monitoring</li>
+        <li>ETL pipeline development</li>
+      </ul>
+      <div class="service-tools">
+        <span>Python</span>
+        <span>dbt</span>
+        <span>GitHub Actions</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Engagement Models -->
+<section class="section" id="engagement">
+  <div class="reveal">
+    <div class="section-label">// How We Work</div>
+    <div class="section-title">Flexible engagement.</div>
+    <p class="section-desc">
+      Monthly retainer or project-based. Scale up or down as needed.
+    </p>
+  </div>
+
+  <div class="engagement-grid reveal">
+    <div class="engagement-card">
+      <div class="engagement-header">
+        <h3>Monthly Retainer</h3>
+        <p class="engagement-price">Starting at <span>$3,500</span>/month</p>
+      </div>
+      <p>Ongoing support with predictable pricing. Best for companies that need consistent financial operations.</p>
+      <ul>
+        <li>Dedicated hours per month</li>
+        <li>Monthly close & reporting</li>
+        <li>Regular check-ins</li>
+        <li>Slack/email support</li>
+      </ul>
+      <div class="engagement-best">Best for: Startups with ongoing needs</div>
+    </div>
+
+    <div class="engagement-card">
+      <div class="engagement-header">
+        <h3>Project-Based</h3>
+        <p class="engagement-price">Scoped per <span>project</span></p>
+      </div>
+      <p>Fixed scope, fixed price. Dashboard builds, model development, system implementations.</p>
+      <ul>
+        <li>Defined deliverables</li>
+        <li>Clear timeline</li>
+        <li>Handoff documentation</li>
+        <li>Training included</li>
+      </ul>
+      <div class="engagement-best">Best for: One-time builds, implementations</div>
+    </div>
+
+    <div class="engagement-card">
+      <div class="engagement-header">
+        <h3>Fractional CFO</h3>
+        <p class="engagement-price">Starting at <span>$7,500</span>/month</p>
+      </div>
+      <p>Strategic leadership without the full-time cost. Board-level involvement, fundraising support, strategic planning.</p>
+      <ul>
+        <li>Executive-level guidance</li>
+        <li>Board meeting participation</li>
+        <li>Investor relations support</li>
+        <li>Strategic financial planning</li>
+      </ul>
+      <div class="engagement-best">Best for: Series A+ companies</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <h2>Let's talk about what you need.</h2>
+  <p>No pitch deck, no pressure. Just a conversation about your business.</p>
+  <a href="/contact" class="btn-primary">Schedule a Discovery Call</a>
+</section>
+
 </Layout>
 
 <style>
-  .page-hero {
-    padding: 180px 0 100px;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
+  .hero-mini {
+    padding: 10rem 3rem 5rem;
+    position: relative;
+    overflow: hidden;
   }
 
-  .page-hero h1 {
-    color: var(--primary);
-    margin-bottom: 20px;
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(30, 30, 42, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30, 30, 42, 0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 70%);
   }
 
-  .page-intro {
-    font-size: 1.25rem;
-    color: var(--text-light);
-    max-width: 700px;
-  }
-
-  .section-label {
-    display: inline-block;
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-  }
-
-  .services-detail {
-    padding: 80px 0;
-  }
-
-  .service-block {
-    padding: 60px 0;
-    border-bottom: 1px solid #e2e8f0;
-  }
-
-  .service-block:last-child {
-    border-bottom: none;
-  }
-
-  .service-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
-    margin-bottom: 32px;
-  }
-
-  .service-number {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--accent);
-    opacity: 0.3;
-    line-height: 1;
-  }
-
-  .service-header h2 {
-    color: var(--primary);
-    margin-bottom: 8px;
-  }
-
-  .service-tagline {
-    color: var(--text-light);
-    font-size: 1.1rem;
-  }
-
-  .service-content {
+  .hero-content {
     max-width: 800px;
-    margin-left: 90px;
+    position: relative;
+    z-index: 2;
   }
 
-  .service-content > p {
-    font-size: 1.05rem;
-    color: var(--text-light);
-    margin-bottom: 24px;
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-mini h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .accent { color: var(--accent); }
+
+  .hero-desc {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 540px;
+    line-height: 1.7;
+  }
+
+  /* Services grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.4s;
+  }
+
+  .service-card:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  .service-card.featured {
+    border-color: var(--accent);
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card > p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
   }
 
   .service-features {
     list-style: none;
-    margin-bottom: 24px;
+    margin-bottom: 1.25rem;
   }
 
   .service-features li {
-    padding: 8px 0;
-    padding-left: 28px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 0.4rem 0;
+    padding-left: 1.25rem;
     position: relative;
-    color: var(--text);
   }
 
   .service-features li::before {
-    content: "◈";
+    content: '▸';
     position: absolute;
     left: 0;
     color: var(--accent);
   }
 
-  .service-ideal {
-    background: var(--bg-alt);
-    padding: 16px 20px;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    color: var(--text-light);
+  .service-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
   }
 
-  .how-we-work {
-    background: var(--bg-alt);
-    padding: 100px 0;
+  .service-tools span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    padding: 0.3rem 0.6rem;
+    background: var(--accent-dim);
+    border: 1px solid rgba(0, 229, 160, 0.15);
+    border-radius: 4px;
+    color: var(--accent);
   }
 
-  .section-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .section-header h2 {
-    color: var(--primary);
-  }
-
+  /* Engagement cards */
   .engagement-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-  }
-
-  .engagement-card {
-    background: white;
-    padding: 40px 32px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    position: relative;
-  }
-
-  .engagement-card.featured {
-    border-color: var(--accent);
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
-  }
-
-  .featured-badge {
-    position: absolute;
-    top: -12px;
-    left: 24px;
-    background: var(--accent);
-    color: var(--bg-dark);
-    padding: 4px 16px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-  }
-
-  .engagement-card h3 {
-    color: var(--primary);
-    margin-bottom: 12px;
-  }
-
-  .engagement-desc {
-    color: var(--text-light);
-    margin-bottom: 20px;
-    font-size: 0.95rem;
-  }
-
-  .engagement-details {
-    list-style: none;
-  }
-
-  .engagement-details li {
-    padding: 6px 0;
-    color: var(--text);
-    font-size: 0.9rem;
-  }
-
-  .engagement-details li::before {
-    content: "✓ ";
-    color: var(--accent);
-    font-weight: bold;
-  }
-
-  .cta {
-    background: var(--primary);
-    text-align: center;
-    padding: 100px 0;
-  }
-
-  .cta-content {
-    max-width: 600px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
     margin: 0 auto;
   }
 
-  .cta h2 {
-    color: white;
-    margin-bottom: 16px;
+  .engagement-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.4s;
   }
 
-  .cta p {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.125rem;
-    margin-bottom: 32px;
+  .engagement-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  .engagement-header {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .engagement-header h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .engagement-price {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .engagement-price span {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .engagement-card > p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .engagement-card ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .engagement-card li {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 0.4rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .engagement-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .engagement-best {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 8rem 3rem;
+    position: relative;
+  }
+
+  .cta-glow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+    filter: blur(100px);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .cta-section p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .engagement-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 768px) {
-    .page-hero {
-      padding: 140px 0 60px;
-    }
-
-    .service-content {
-      margin-left: 0;
-    }
-
-    .service-header {
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .service-number {
-      font-size: 2rem;
-    }
+    .hero-mini { padding: 8rem 1.5rem 3rem; }
+    .cta-section { padding: 4rem 1.5rem; }
   }
 </style>

@@ -4,377 +4,469 @@ import Layout from '../layouts/Layout.astro';
 const schema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "mainEntity": {
-    "@type": "ProfessionalService",
-    "name": "Pythia Insights",
-    "description": "Fractional CFO and financial planning services for growing businesses. We provide CFO-level financial strategy, FP&A, BI dashboards, and bookkeeping.",
-    "url": "https://pythiainsights.com",
-    "foundingDate": "2026",
-    "slogan": "Financial Clarity for the Modern Business",
-    "knowsAbout": [
-      "Fractional CFO Services",
-      "Financial Planning and Analysis",
-      "Business Intelligence",
-      "Bookkeeping",
-      "Cash Flow Management",
-      "Financial Forecasting"
-    ],
-    "areaServed": {
-      "@type": "Country",
-      "name": "United States"
-    }
-  }
+  "name": "About Pythia Insights",
+  "description": "One-person consultancy delivering full-stack finance. FP&A experience meets software engineering principles.",
+  "url": "https://pythiainsights.com/about"
 };
 ---
 
 <Layout 
   title="About" 
-  description="Learn about Pythia Insights and our approach to fractional CFO services and financial intelligence for growing businesses."
+  description="One-person consultancy delivering full-stack finance. FP&A experience meets software engineering principles."
   canonicalUrl="https://pythiainsights.com/about"
   schema={schema}
 >
-  <section class="page-hero">
-    <div class="container">
-      <span class="section-label">About Us</span>
-      <h1>Financial Clarity for the Modern Business</h1>
-      <p class="page-intro">We started Pythia because too many growing businesses are flying blind—making million-dollar decisions with spreadsheet-level visibility.</p>
-    </div>
-  </section>
 
-  <section class="story">
-    <div class="container">
-      <div class="story-content">
-        <h2>Why "Pythia"?</h2>
-        <p>In ancient Greece, the Pythia was the Oracle of Delphi—the source of clarity and foresight for leaders facing their most important decisions.</p>
-        <p>That's the role we aim to fill for modern businesses. Not mystical prophecy, but clear-eyed analysis that helps you see what's coming and prepare for it.</p>
-        <p>We believe every growing business deserves access to the kind of financial intelligence that Fortune 500 companies take for granted. Our job is to make that accessible, practical, and actionable.</p>
-      </div>
-    </div>
-  </section>
+<section class="hero-mini">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content reveal">
+    <div class="hero-tag">// ABOUT</div>
+    <h1>One consultant.<br><span class="accent">Full-stack capability.</span></h1>
+    <p class="hero-desc">
+      Pythia Insights is a one-person consultancy. No account managers, 
+      no junior analysts, no overhead. Just direct access to someone who 
+      actually does the work.
+    </p>
+  </div>
+</section>
 
-  <section class="philosophy">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Our Philosophy</span>
-        <h2>How We Think About Finance</h2>
-      </div>
-      <div class="philosophy-grid">
-        <div class="philosophy-card">
-          <h3>Forward, Not Backward</h3>
-          <p>Historical financials are table stakes. We focus on what's coming—forecasts that drive action, not just reports that explain the past.</p>
-        </div>
-        <div class="philosophy-card">
-          <h3>Insight, Not Just Data</h3>
-          <p>Anyone can pull numbers from a system. We turn those numbers into stories that lead to better decisions.</p>
-        </div>
-        <div class="philosophy-card">
-          <h3>Partnership, Not Vendors</h3>
-          <p>We succeed when you succeed. That means understanding your business deeply and caring about outcomes, not just deliverables.</p>
-        </div>
-        <div class="philosophy-card">
-          <h3>Build to Scale</h3>
-          <p>Every process and system we implement is designed to grow with you. No rebuilding from scratch when you hit the next stage.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="section-divider"></div>
 
-  <section class="approach">
-    <div class="container">
-      <div class="approach-content">
-        <span class="section-label">Our Approach</span>
-        <h2>Modern Finance for Modern Business</h2>
-        <p>The financial function has evolved. Spreadsheets and month-end reports aren't enough anymore. We bring modern tools and methodologies to help you:</p>
-        <div class="approach-grid">
-          <div class="approach-item">
-            <div class="approach-icon">⚡</div>
-            <div>
-              <h4>Move Faster</h4>
-              <p>Real-time data and automated workflows mean you're not waiting weeks for answers.</p>
-            </div>
-          </div>
-          <div class="approach-item">
-            <div class="approach-icon">🎯</div>
-            <div>
-              <h4>Decide Better</h4>
-              <p>Clear frameworks and scenario analysis take the guesswork out of big decisions.</p>
-            </div>
-          </div>
-          <div class="approach-item">
-            <div class="approach-icon">📈</div>
-            <div>
-              <h4>Scale Confidently</h4>
-              <p>Financial systems that grow with you, not ones you'll outgrow in 18 months.</p>
-            </div>
-          </div>
-          <div class="approach-item">
-            <div class="approach-icon">🔍</div>
-            <div>
-              <h4>See Clearly</h4>
-              <p>Dashboards and KPIs that tell the truth about what's really happening.</p>
-            </div>
-          </div>
-        </div>
+<section class="section">
+  <div class="about-content reveal">
+    <div class="about-text">
+      <div class="section-label">// The Person</div>
+      <h2>Hi, I'm Eric.</h2>
+      <p>
+        I spent years in FP&A at growth-stage companies—building operating models, 
+        preparing board decks, running scenario analyses, and wondering why everything 
+        still lived in Excel.
+      </p>
+      <p>
+        Then I learned to code. Suddenly, those bottoms-up revenue models could be 
+        version-controlled. Those cohort analyses could auto-refresh. Those board 
+        reports could deploy from Git.
+      </p>
+      <p>
+        Pythia is the intersection of finance expertise and software engineering 
+        principles. I don't just analyze your numbers—I build the infrastructure 
+        that makes analysis automatic, reproducible, and scalable.
+      </p>
+    </div>
+    <div class="about-credentials">
+      <div class="credential-card">
+        <div class="credential-icon">📊</div>
+        <h4>FP&A Background</h4>
+        <p>Years of operating model experience at growth-stage SaaS companies. ARR waterfalls, cohort analysis, board reporting.</p>
+      </div>
+      <div class="credential-card">
+        <div class="credential-icon">🐍</div>
+        <h4>Technical Skills</h4>
+        <p>Python, SQL, dbt, modern BI tools. I build the data products, not just the analysis.</p>
+      </div>
+      <div class="credential-card">
+        <div class="credential-icon">🎓</div>
+        <h4>Education</h4>
+        <p>MBA, University of Pittsburgh. CPA-track coursework.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="values">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">What We Value</span>
-        <h2>Principles That Guide Us</h2>
-      </div>
-      <div class="values-list">
-        <div class="value-item">
-          <span class="value-number">01</span>
-          <div>
-            <h3>Clarity Over Complexity</h3>
-            <p>Simple solutions that work beat elegant solutions that don't. We optimize for understanding and action.</p>
-          </div>
-        </div>
-        <div class="value-item">
-          <span class="value-number">02</span>
-          <div>
-            <h3>Ownership Mentality</h3>
-            <p>We treat your business like our own. That means telling you hard truths and pushing back when needed.</p>
-          </div>
-        </div>
-        <div class="value-item">
-          <span class="value-number">03</span>
-          <div>
-            <h3>Continuous Improvement</h3>
-            <p>Good enough today isn't good enough tomorrow. We're always looking for better ways to serve you.</p>
-          </div>
-        </div>
-        <div class="value-item">
-          <span class="value-number">04</span>
-          <div>
-            <h3>Transparent Communication</h3>
-            <p>No jargon, no surprises. You'll always know what we're doing, why we're doing it, and what it costs.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="section-divider"></div>
 
-  <section class="cta">
-    <div class="container">
-      <div class="cta-content">
-        <h2>Let's Talk About Your Business</h2>
-        <p>Whether you're trying to solve a specific problem or just want a clearer picture of your finances, we're here to help.</p>
-        <a href="/contact" class="btn btn-primary">Start a Conversation</a>
+<section class="section">
+  <div class="reveal">
+    <div class="section-label">// Why "Pythia"</div>
+    <div class="section-title">The Oracle of Delphi.</div>
+    <p class="section-desc">
+      In ancient Greece, the Pythia was the oracle—the one who could see patterns 
+      others couldn't, who could translate chaos into insight.
+    </p>
+  </div>
+
+  <div class="philosophy-grid reveal">
+    <div class="philosophy-card">
+      <h3>Data as Oracle</h3>
+      <p>Your financial data contains answers to questions you haven't thought to ask yet. The job is building systems that surface those answers automatically.</p>
+    </div>
+    <div class="philosophy-card">
+      <h3>Clarity Over Complexity</h3>
+      <p>The goal isn't impressive models—it's decisions made confidently. If the output doesn't change behavior, the work was wasted.</p>
+    </div>
+    <div class="philosophy-card">
+      <h3>Infrastructure > Insights</h3>
+      <p>Individual insights fade. Infrastructure compounds. I build the second kind.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="section">
+  <div class="reveal">
+    <div class="section-label">// How I Work</div>
+    <div class="section-title">Direct, opinionated, transparent.</div>
+  </div>
+
+  <div class="working-style reveal">
+    <div class="style-item">
+      <span class="style-icon">💬</span>
+      <div>
+        <h4>Direct Communication</h4>
+        <p>No account managers or project managers as intermediaries. You talk to the person doing the work.</p>
       </div>
     </div>
-  </section>
+    <div class="style-item">
+      <span class="style-icon">📝</span>
+      <div>
+        <h4>Opinionated Recommendations</h4>
+        <p>I'll tell you what I think you should do. You're hiring for judgment, not just execution.</p>
+      </div>
+    </div>
+    <div class="style-item">
+      <span class="style-icon">🔍</span>
+      <div>
+        <h4>Transparent Pricing</h4>
+        <p>Monthly retainer or project-based. No surprise invoices, no scope creep games.</p>
+      </div>
+    </div>
+    <div class="style-item">
+      <span class="style-icon">📚</span>
+      <div>
+        <h4>Knowledge Transfer</h4>
+        <p>Everything I build is documented. If we stop working together, you own the infrastructure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="section">
+  <div class="reveal">
+    <div class="section-label">// Good Fit</div>
+    <div class="section-title">Who this is for.</div>
+  </div>
+
+  <div class="fit-grid reveal">
+    <div class="fit-card good">
+      <h3>Great Fit</h3>
+      <ul>
+        <li>Series A-C startups with real financial complexity</li>
+        <li>Technical founders who value code over spreadsheets</li>
+        <li>Companies that want to own their financial infrastructure</li>
+        <li>Teams that need FP&A + BI + bookkeeping integrated</li>
+        <li>Businesses scaling past what part-time bookkeeping handles</li>
+      </ul>
+    </div>
+    <div class="fit-card bad">
+      <h3>Not A Fit</h3>
+      <ul>
+        <li>Pre-revenue startups (you don't need this yet)</li>
+        <li>Enterprise companies (you need a team, not a consultant)</li>
+        <li>Anyone who wants me to maintain Excel models</li>
+        <li>Clients who need 24/7 on-call availability</li>
+        <li>Businesses looking for the cheapest option</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <h2>Think we might be a fit?</h2>
+  <p>Let's have a conversation. No pitch, no pressure.</p>
+  <a href="/contact" class="btn-primary">Schedule a Discovery Call</a>
+</section>
+
 </Layout>
 
 <style>
-  .page-hero {
-    padding: 180px 0 100px;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
+  .hero-mini {
+    padding: 10rem 3rem 5rem;
+    position: relative;
+    overflow: hidden;
   }
 
-  .page-hero h1 {
-    color: var(--primary);
-    margin-bottom: 20px;
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(30, 30, 42, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30, 30, 42, 0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 70%);
   }
 
-  .page-intro {
-    font-size: 1.25rem;
-    color: var(--text-light);
-    max-width: 700px;
+  .hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
   }
 
-  .section-label {
-    display: inline-block;
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
     color: var(--accent);
-    font-weight: 600;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 16px;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
   }
 
-  .story {
-    padding: 100px 0;
+  .hero-mini h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
   }
 
-  .story-content {
-    max-width: 700px;
-  }
+  .accent { color: var(--accent); }
 
-  .story-content h2 {
-    color: var(--primary);
-    margin-bottom: 24px;
-  }
-
-  .story-content p {
-    font-size: 1.125rem;
-    color: var(--text-light);
-    margin-bottom: 20px;
+  .hero-desc {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 600px;
     line-height: 1.7;
   }
 
-  .philosophy {
-    background: var(--bg-alt);
-    padding: 100px 0;
+  /* About content */
+  .about-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
-  .section-header {
-    text-align: center;
-    margin-bottom: 60px;
+  .about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
 
-  .section-header h2 {
-    color: var(--primary);
+  .about-text p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
   }
 
+  .about-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .credential-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+  }
+
+  .credential-card:hover {
+    border-color: var(--border-accent);
+  }
+
+  .credential-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .credential-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .credential-card p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* Philosophy grid */
   .philosophy-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   .philosophy-card {
-    background: white;
-    padding: 32px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
+    padding: 2rem;
+    transition: all 0.4s;
+  }
+
+  .philosophy-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
   }
 
   .philosophy-card h3 {
-    color: var(--primary);
-    margin-bottom: 12px;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
   }
 
   .philosophy-card p {
-    color: var(--text-light);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
   }
 
-  .approach {
-    padding: 100px 0;
-  }
-
-  .approach-content h2 {
-    color: var(--primary);
-    margin-bottom: 16px;
-  }
-
-  .approach-content > p {
-    font-size: 1.125rem;
-    color: var(--text-light);
-    max-width: 700px;
-    margin-bottom: 48px;
-  }
-
-  .approach-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
-  }
-
-  .approach-item {
-    display: flex;
-    gap: 20px;
-  }
-
-  .approach-icon {
-    font-size: 2rem;
-    flex-shrink: 0;
-  }
-
-  .approach-item h4 {
-    color: var(--primary);
-    margin-bottom: 8px;
-  }
-
-  .approach-item p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-  }
-
-  .values {
-    background: var(--bg-dark);
-    padding: 100px 0;
-  }
-
-  .values .section-label {
-    color: var(--accent);
-  }
-
-  .values .section-header h2 {
-    color: white;
-  }
-
-  .values-list {
+  /* Working style */
+  .working-style {
     max-width: 800px;
     margin: 0 auto;
-  }
-
-  .value-item {
     display: flex;
-    gap: 24px;
-    padding: 32px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  .value-item:last-child {
-    border-bottom: none;
+  .style-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s;
   }
 
-  .value-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--accent);
-    opacity: 0.5;
+  .style-item:hover {
+    border-color: var(--border-accent);
+  }
+
+  .style-icon {
+    font-size: 1.5rem;
     flex-shrink: 0;
-    width: 60px;
   }
 
-  .value-item h3 {
-    color: white;
-    margin-bottom: 8px;
+  .style-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
   }
 
-  .value-item p {
-    color: rgba(255, 255, 255, 0.7);
+  .style-item p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
   }
 
-  .cta {
-    background: var(--primary);
-    text-align: center;
-    padding: 100px 0;
-  }
-
-  .cta-content {
-    max-width: 600px;
+  /* Fit grid */
+  .fit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
     margin: 0 auto;
   }
 
-  .cta h2 {
-    color: white;
-    margin-bottom: 16px;
+  .fit-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
   }
 
-  .cta p {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.125rem;
-    margin-bottom: 32px;
+  .fit-card.good {
+    border-color: var(--accent);
+  }
+
+  .fit-card.bad {
+    border-color: var(--rose);
+  }
+
+  .fit-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .fit-card.good h3 { color: var(--accent); }
+  .fit-card.bad h3 { color: var(--rose); }
+
+  .fit-card ul {
+    list-style: none;
+  }
+
+  .fit-card li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .fit-card.good li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .fit-card.bad li::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    color: var(--rose);
+    font-weight: 600;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 8rem 3rem;
+    position: relative;
+  }
+
+  .cta-glow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+    filter: blur(100px);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .cta-section p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .about-content { grid-template-columns: 1fr; gap: 3rem; }
+    .philosophy-grid { grid-template-columns: 1fr; }
+    .fit-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 768px) {
-    .page-hero {
-      padding: 140px 0 60px;
-    }
-
-    .value-item {
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .value-number {
-      font-size: 1.5rem;
-    }
+    .hero-mini { padding: 8rem 1.5rem 3rem; }
+    .cta-section { padding: 4rem 1.5rem; }
   }
 </style>
