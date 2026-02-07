@@ -23,7 +23,7 @@ const {
   article
 } = Astro.props;
 
-const fullTitle = title.includes("Pythia") ? title : `${title} | Pythia Insights`;
+const fullTitle = title?.includes("Pythia") ? title : `${title || "Pythia Insights"} | Pythia Insights`;
 const siteUrl = "https://pythiainsights.com";
 const ogImageUrl = ogImage ? (ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`) : null;
 const pageUrl = canonicalUrl || siteUrl;
