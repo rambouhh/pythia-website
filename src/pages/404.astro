@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="404 — Page Not Found"
+  description="The page you're looking for doesn't exist. Let's get you back on track."
+>
+  <section class="error-page">
+    <div class="error-content">
+      <div class="error-code">
+        <span class="digit">4</span>
+        <span class="digit zero">0</span>
+        <span class="digit">4</span>
+      </div>
+      
+      <h1>Page not found</h1>
+      
+      <p class="error-desc">
+        The page you're looking for has either moved, been deleted, or never existed. 
+        It happens to the best financial models too.
+      </p>
+      
+      <div class="error-actions">
+        <a href="/" class="btn-primary">Back to Home</a>
+        <a href="/contact" class="btn-ghost">Contact Us</a>
+      </div>
+      
+      <div class="quick-links">
+        <span class="quick-label">Quick links:</span>
+        <a href="/services">Services</a>
+        <a href="/about">About</a>
+        <a href="/blog">Blog</a>
+        <a href="/guides/fractional-cfo-services">CFO Guide</a>
+      </div>
+    </div>
+    
+    <!-- Decorative elements -->
+    <div class="error-decoration">
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .error-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .error-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 560px;
+  }
+  
+  .error-code {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .digit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+    opacity: 0.15;
+  }
+  
+  .digit.zero {
+    color: var(--accent);
+    opacity: 0.6;
+    animation: pulse-zero 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-zero {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.3; }
+  }
+  
+  h1 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+  
+  .error-desc {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+  
+  .error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  
+  .quick-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .quick-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  
+  .quick-links a {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: color 0.3s;
+  }
+  
+  .quick-links a:hover {
+    color: var(--accent);
+  }
+  
+  /* Decorative glows */
+  .error-decoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+  }
+  
+  .glow-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--accent);
+    opacity: 0.04;
+    top: 20%;
+    left: 10%;
+  }
+  
+  .glow-2 {
+    width: 300px;
+    height: 300px;
+    background: var(--violet);
+    opacity: 0.03;
+    bottom: 20%;
+    right: 15%;
+  }
+  
+  @media (max-width: 640px) {
+    .error-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .quick-links {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .quick-label {
+      margin-bottom: 0.5rem;
+    }
+  }
+</style>
