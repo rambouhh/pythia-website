@@ -1,16 +1,21 @@
 ---
 import Layout from './Layout.astro';
+import { formatReadingTime } from '../utils/readingTime';
 
 interface Props {
-  title: string;
-  description?: string;
-  pubDate?: Date;
-  author?: string;
-  tags?: string[];
-  image?: string;
+  frontmatter: {
+    title: string;
+    description?: string;
+    pubDate?: Date;
+    author?: string;
+    tags?: string[];
+    image?: string;
+  };
+  readingTime?: number;
 }
 
-const { title, description, pubDate, author = "Eric", tags = [], image } = Astro.props;
+const { frontmatter, readingTime } = Astro.props;
+const { title, description, pubDate, author = "Eric", tags = [], image } = frontmatter;
 
 const formattedDate = pubDate ? new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
@@ -55,6 +60,7 @@ const schema = {
     <div class="article-meta">
       <a href="/blog" class="back-link">← Blog</a>
       {formattedDate && <time datetime={pubDate?.toISOString()}>{formattedDate}</time>}
+      {readingTime && <span class="reading-time">{formatReadingTime(readingTime)}</span>}
     </div>
     <h1>{title}</h1>
     {description && <p class="article-desc">{description}</p>}
@@ -127,6 +133,10 @@ const schema = {
 
   .back-link:hover {
     opacity: 0.8;
+  }
+
+  .reading-time {
+    color: var(--text-muted);
   }
 
   .article-header h1 {

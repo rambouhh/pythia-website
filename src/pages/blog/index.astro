@@ -1,13 +1,22 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { calculateReadingTime, formatReadingTime } from '../../utils/readingTime';
 
 const posts = await getCollection('blog', ({ data }) => {
   return import.meta.env.PROD ? !data.draft : true;
 });
 
-// Sort by date, newest first
-const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+// Sort by date, newest first, and add reading time
+const sortedPosts = await Promise.all(
+  posts
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .map(async (post) => {
+      const { remarkPluginFrontmatter } = await post.render();
+      const readingTime = calculateReadingTime(post.body || '');
+      return { ...post, readingTime };
+    })
+);
 ---
 
 <Layout 
@@ -47,6 +56,7 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
               day: 'numeric' 
             })}
           </time>
+          <span class="reading-time">{formatReadingTime(post.readingTime)}</span>
           {post.data.category && (
             <span class="post-category">{post.data.category}</span>
           )}
@@ -185,6 +195,10 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
     color: var(--cyan);
     text-transform: uppercase;
     letter-spacing: 0.08em;
+  }
+
+  .reading-time {
+    color: var(--text-muted);
   }
 
   .post-card h2 {

@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import { formatReadingTime } from '../utils/readingTime';
 
 interface Props {
   frontmatter: {
@@ -16,9 +17,10 @@ interface Props {
       keywords?: string[];
     };
   };
+  readingTime?: number;
 }
 
-const { frontmatter } = Astro.props;
+const { frontmatter, readingTime } = Astro.props;
 const { title, description, pubDate, author = 'Pythia Insights', seo } = frontmatter;
 
 const schema = {
@@ -54,6 +56,7 @@ const pageDescription = seo?.description || description;
         <h1>{title}</h1>
         <p class="guide-meta">
           Published {pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          {readingTime && <span class="reading-time"> · {formatReadingTime(readingTime)}</span>}
         </p>
       </header>
       <div class="guide-content">

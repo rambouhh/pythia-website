@@ -1,0 +1,25 @@
+{
+  "name": "Pythia Insights",
+  "short_name": "Pythia",
+  "description": "Modern fractional CFO and FP&A services for growing businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c0c14",
+  "theme_color": "#00e5a0",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["business", "finance"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

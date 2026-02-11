@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import GuideLayout from '../../layouts/GuideLayout.astro';
+import { calculateReadingTime } from '../../utils/readingTime';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides', ({ data }) => {
@@ -16,8 +17,9 @@ export async function getStaticPaths() {
 
 const { guide } = Astro.props;
 const { Content } = await guide.render();
+const readingTime = calculateReadingTime(guide.body || '');
 ---
 
-<GuideLayout frontmatter={guide.data}>
+<GuideLayout frontmatter={guide.data} readingTime={readingTime}>
   <Content />
 </GuideLayout>
