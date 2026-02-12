@@ -19,6 +19,10 @@ const guides = defineCollection({
       canonical: z.string().optional(),
       keywords: z.array(z.string()).optional(),
     }).optional(),
+    faq: z.array(z.object({
+      question: z.string(),
+      answer: z.string(),
+    })).optional(),
   }),
 });
 

@@ -16,6 +16,23 @@ seo:
   keywords: ["fractional CFO services", "fractional CFO", "part-time CFO", "outsourced CFO", "virtual CFO", "fractional CFO cost", "hire fractional CFO"]
 schema:
   type: "Article"
+faq:
+  - question: "How is a fractional CFO different from a consultant?"
+    answer: "A consultant typically comes in for a defined project with a clear end date. A fractional CFO is an ongoing member of your team — they develop deep knowledge of your business and serve as your strategic finance partner over months or years. The relationship is continuous, not project-based."
+  - question: "Can a fractional CFO replace my bookkeeper?"
+    answer: "No — different roles. A fractional CFO provides strategic financial leadership. Bookkeeping is the operational work of recording transactions and maintaining clean books. You need both, and they work together. Some fractional CFO firms offer both services, giving you an integrated solution."
+  - question: "How many hours per month does a fractional CFO typically work?"
+    answer: "Typical engagements range from 10-40 hours per month, depending on complexity and scope. Most growing businesses benefit from 15-25 hours monthly — enough for meaningful strategic work without paying for unused time."
+  - question: "How long are fractional CFO engagements?"
+    answer: "Engagements typically run month-to-month or in 6-12 month terms. The relationship often continues for years as long as both parties see value. Some clients eventually hire a full-time CFO; others stay with fractional support indefinitely."
+  - question: "Do fractional CFOs work remotely?"
+    answer: "Most do, yes. The fractional CFO model is well-suited to remote work — modern tools allow full financial collaboration without physical presence. Some engagements include periodic on-site visits for team meetings, board presentations, or intensive planning sessions."
+  - question: "What size company should hire a fractional CFO?"
+    answer: "Fractional CFOs serve companies ranging from $500K to $50M+ in revenue, though the sweet spot is typically $1M–$20M. Below $500K, financial complexity rarely justifies the investment. Above $20M, companies often have (or need) dedicated full-time finance leadership."
+  - question: "Will a fractional CFO work with my existing accountant or bookkeeper?"
+    answer: "Absolutely. A good fractional CFO coordinates with your existing team and improves how everyone works together. They can help upgrade your bookkeeping, manage your accountant relationship, and ensure information flows smoothly."
+  - question: "What results can I expect from hiring a fractional CFO?"
+    answer: "Common outcomes include faster, more reliable financial reporting, clear financial forecasts and budgets, improved cash flow management, better data for decision-making, successful fundraising or financing, more time freed from financial tasks, and confidence in your numbers."
 ---
 
 Your business is growing. Revenue is up, your team is expanding, and the financial decisions keep getting more complex. You know you need serious financial leadership — someone who can see around corners, manage cash flow strategically, and help you make confident decisions.

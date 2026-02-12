@@ -2,6 +2,11 @@
 import Layout from './Layout.astro';
 import { formatReadingTime } from '../utils/readingTime';
 
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 interface Props {
   frontmatter: {
     title: string;
@@ -16,14 +21,16 @@ interface Props {
       canonical?: string;
       keywords?: string[];
     };
+    faq?: FAQItem[];
   };
   readingTime?: number;
 }
 
 const { frontmatter, readingTime } = Astro.props;
-const { title, description, pubDate, author = 'Pythia Insights', seo } = frontmatter;
+const { title, description, pubDate, author = 'Pythia Insights', seo, faq } = frontmatter;
 
-const schema = {
+// Article schema
+const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": title,
@@ -39,6 +46,23 @@ const schema = {
     "url": "https://pythiainsights.com"
   }
 };
+
+// FAQ schema (if FAQ items exist)
+const faqSchema = faq && faq.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+} : null;
+
+// Combined schema array for pages with FAQ
+const schema = faqSchema ? [articleSchema, faqSchema] : articleSchema;
 
 const pageTitle = seo?.title || `${title} | Pythia Insights`;
 const pageDescription = seo?.description || description;
