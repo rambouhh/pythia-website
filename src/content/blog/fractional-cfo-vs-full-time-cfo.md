@@ -74,13 +74,13 @@ And that's before you factor in:
 A fractional CFO is the right choice when:
 
 ### 1. You're Between $1M and $30M in Revenue
-Most companies in this range need CFO-level thinking but can't justify a full-time CFO salary. A fractional CFO gives you the strategy without the overhead.
+Most companies in this range need CFO-level thinking but can't justify a full-time CFO salary. A fractional CFO gives you the strategy without the overhead. (For a deeper dive into what fractional CFOs actually do, see our [Complete Guide to Fractional CFO Services](/guides/fractional-cfo-services/).)
 
 ### 2. You Have Specific, Defined Needs
 Raising capital? Going through M&A? Implementing new financial systems? A fractional CFO can tackle these projects intensively, then scale back.
 
 ### 3. Your Finance Function Is Otherwise Handled
-If you have a competent controller or bookkeeper handling day-to-day operations, you may only need strategic oversight — not full-time execution.
+If you have a competent controller or bookkeeper handling day-to-day operations, you may only need strategic oversight — not full-time execution. (Not sure if you've outgrown DIY bookkeeping? Here are [10 signs it's time to get help](/blog/10-signs-outgrown-diy-bookkeeping/).)
 
 ### 4. You Value Flexibility
 Business needs change. With a fractional CFO, you can scale hours up during busy periods (fundraising, year-end) and down during quieter times.
@@ -120,7 +120,7 @@ Many growing companies use a hybrid approach:
 3. **Increase fractional hours** as complexity grows
 4. **Transition to full-time** when the math finally makes sense (usually $30M+ revenue)
 
-This graduated approach lets you build capability without overcommitting too early.
+This graduated approach lets you build capability without overcommitting too early. For a complete breakdown of how fractional engagements work across different business stages, read our [Complete Guide to Fractional CFO Services](/guides/fractional-cfo-services/).
 
 ---
 

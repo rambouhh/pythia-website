@@ -85,7 +85,7 @@ The rest of the month, you don't need them hovering. You need them available, st
 
 One of the most common questions we hear: *"At what point should I just hire a full-time CFO instead?"*
 
-Here's a detailed comparison to help you decide:
+Here's a detailed comparison to help you decide. (For a focused analysis with specific cost breakdowns, see our article: [Fractional CFO vs Full-Time CFO: A Complete Cost-Benefit Analysis](/blog/fractional-cfo-vs-full-time-cfo/).)
 
 ### Cost Comparison
 
@@ -160,7 +160,7 @@ Banks and investors ask for financial projections, and you're scrambling. You do
 
 ### 4. You've Outgrown Your Bookkeeper (But Can't Afford a CFO)
 
-Your bookkeeper keeps the lights on, but they're not strategic. You need someone who can interpret the numbers, not just record them. Yet a full-time CFO is out of budget.
+Your bookkeeper keeps the lights on, but they're not strategic. You need someone who can interpret the numbers, not just record them. Yet a full-time CFO is out of budget. (Not sure if this is you? Check out [10 Signs You've Outgrown DIY Bookkeeping](/blog/10-signs-outgrown-diy-bookkeeping/).)
 
 **This is the exact gap fractional CFO services fill.**
 

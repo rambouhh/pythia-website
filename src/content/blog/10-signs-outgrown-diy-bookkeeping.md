@@ -113,10 +113,12 @@ If you recognized yourself in three or more of these signs, it's time to make a 
 Cost: $500-$2,500/month depending on complexity. Best for: ongoing transaction management and basic reporting.
 
 **Option 2: Fractional CFO Services**
-Cost: $1,500-$5,000/month. Best for: strategic financial leadership beyond basic bookkeeping — forecasting, planning, board reporting.
+Cost: $1,500-$5,000/month. Best for: strategic financial leadership beyond basic bookkeeping — forecasting, planning, board reporting. Not sure if this fits? Read our [Complete Guide to Fractional CFO Services](/guides/fractional-cfo-services/) to understand exactly what you'd be getting.
 
 **Option 3: Clean Up First, Then Decide**
 Sometimes you need a one-time catch-up engagement before committing to ongoing services. Get your books in order, then evaluate what level of support you actually need.
+
+Weighing the cost of outsourced vs. in-house finance leadership? Our [Fractional CFO vs Full-Time CFO analysis](/blog/fractional-cfo-vs-full-time-cfo/) breaks down the real numbers.
 
 ---
 
