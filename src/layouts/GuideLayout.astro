@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { formatReadingTime } from '../utils/readingTime';
 
 interface FAQItem {
@@ -28,6 +29,13 @@ interface Props {
 
 const { frontmatter, readingTime } = Astro.props;
 const { title, description, pubDate, author = 'Pythia Insights', seo, faq } = frontmatter;
+
+// Breadcrumb items
+const breadcrumbItems = [
+  { name: "Home", url: "/" },
+  { name: "Guides", url: "/guides" },
+  { name: title }
+];
 
 // Article schema
 const articleSchema = {
@@ -76,6 +84,7 @@ const pageDescription = seo?.description || description;
   <article class="guide">
     <div class="container">
       <header class="guide-header">
+        <Breadcrumbs items={breadcrumbItems} />
         <span class="guide-category">Guide</span>
         <h1>{title}</h1>
         <p class="guide-meta">

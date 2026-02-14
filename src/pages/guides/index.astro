@@ -1,0 +1,268 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { calculateReadingTime, formatReadingTime } from '../../utils/readingTime';
+
+const guides = await getCollection('guides', ({ data }) => {
+  return import.meta.env.PROD ? !data.draft : true;
+});
+
+// Sort by date, newest first, and add reading time
+const sortedGuides = await Promise.all(
+  guides
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .map(async (guide) => {
+      const readingTime = calculateReadingTime(guide.body || '');
+      return { ...guide, readingTime };
+    })
+);
+---
+
+<Layout 
+  title="Guides" 
+  description="In-depth guides on fractional CFO services, financial operations, and building finance infrastructure for growing businesses."
+>
+
+<section class="hero-mini">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content reveal">
+    <div class="hero-tag">// GUIDES</div>
+    <h1>Deep dives into <span class="accent">finance</span><br>and <span class="accent">operations.</span></h1>
+    <p class="hero-desc">
+      Comprehensive guides on financial strategy, operations, and infrastructure 
+      for founders and operators building serious businesses.
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="section">
+  <div class="guides-grid reveal">
+    {sortedGuides.map((guide) => (
+      <article class="guide-card">
+        <div class="guide-badge">Guide</div>
+        <div class="guide-meta">
+          <time datetime={guide.data.pubDate.toISOString()}>
+            {guide.data.pubDate.toLocaleDateString('en-US', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            })}
+          </time>
+          <span class="reading-time">{formatReadingTime(guide.readingTime)}</span>
+        </div>
+        <h2>
+          <a href={`/guides/${guide.slug}`}>{guide.data.title}</a>
+        </h2>
+        <p class="guide-excerpt">{guide.data.description}</p>
+        {guide.data.tags && guide.data.tags.length > 0 && (
+          <div class="guide-tags">
+            {guide.data.tags.slice(0, 4).map(tag => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+        <a href={`/guides/${guide.slug}`} class="read-more">Read the full guide →</a>
+      </article>
+    ))}
+  </div>
+  
+  {sortedGuides.length === 0 && (
+    <div class="no-guides reveal">
+      <div class="empty-icon">📚</div>
+      <p>No guides yet. Check back soon!</p>
+      <p class="empty-sub">In the meantime, check out our <a href="/blog">blog</a> or <a href="/contact">get in touch</a>.</p>
+    </div>
+  )}
+</section>
+
+</Layout>
+
+<style>
+  .hero-mini {
+    padding: 10rem 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(30, 30, 42, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30, 30, 42, 0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 70%);
+  }
+
+  .hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-mini h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .accent { color: var(--accent); }
+
+  .hero-desc {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 540px;
+    line-height: 1.7;
+  }
+
+  /* Guides grid */
+  .guides-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .guide-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.4s;
+    position: relative;
+  }
+
+  .guide-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  .guide-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    padding: 0.3rem 0.6rem;
+    background: var(--accent-dim);
+    border: 1px solid rgba(0, 229, 160, 0.3);
+    border-radius: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .guide-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+  }
+
+  .reading-time {
+    color: var(--text-muted);
+  }
+
+  .guide-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    padding-right: 4rem;
+  }
+
+  .guide-card h2 a {
+    color: var(--text);
+    transition: color 0.3s;
+  }
+
+  .guide-card h2 a:hover {
+    color: var(--accent);
+  }
+
+  .guide-excerpt {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .guide-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    padding: 0.3rem 0.6rem;
+    background: var(--accent-dim);
+    border: 1px solid rgba(0, 229, 160, 0.15);
+    border-radius: 4px;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+
+  .read-more {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent);
+    transition: opacity 0.3s;
+  }
+
+  .read-more:hover {
+    opacity: 0.8;
+  }
+
+  /* No guides */
+  .no-guides {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.5;
+  }
+
+  .no-guides p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .empty-sub {
+    font-size: 0.95rem;
+  }
+
+  .empty-sub a {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .hero-mini { padding: 8rem 1.5rem 3rem; }
+    .guide-card { padding: 1.5rem; }
+    .guide-card h2 { font-size: 1.25rem; padding-right: 3rem; }
+    .guide-badge { top: 1rem; right: 1rem; }
+  }
+</style>
