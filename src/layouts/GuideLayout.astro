@@ -1,11 +1,18 @@
 ---
 import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import TableOfContents from '../components/TableOfContents.astro';
 import { formatReadingTime } from '../utils/readingTime';
 
 interface FAQItem {
   question: string;
   answer: string;
+}
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
 }
 
 interface Props {
@@ -25,9 +32,10 @@ interface Props {
     faq?: FAQItem[];
   };
   readingTime?: number;
+  headings?: Heading[];
 }
 
-const { frontmatter, readingTime } = Astro.props;
+const { frontmatter, readingTime, headings = [] } = Astro.props;
 const { title, description, pubDate, author = 'Pythia Insights', seo, faq } = frontmatter;
 
 // Breadcrumb items
@@ -92,6 +100,9 @@ const pageDescription = seo?.description || description;
           {readingTime && <span class="reading-time"> · {formatReadingTime(readingTime)}</span>}
         </p>
       </header>
+      {headings.length > 0 && (
+        <TableOfContents headings={headings} maxDepth={3} />
+      )}
       <div class="guide-content">
         <slot />
       </div>

@@ -16,10 +16,10 @@ export async function getStaticPaths() {
 }
 
 const { guide } = Astro.props;
-const { Content } = await guide.render();
+const { Content, headings } = await guide.render();
 const readingTime = calculateReadingTime(guide.body || '');
 ---
 
-<GuideLayout frontmatter={guide.data} readingTime={readingTime}>
+<GuideLayout frontmatter={guide.data} readingTime={readingTime} headings={headings}>
   <Content />
 </GuideLayout>
