@@ -2,6 +2,7 @@
 import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import TableOfContents from '../components/TableOfContents.astro';
+import ShareButtons from '../components/ShareButtons.astro';
 import { formatReadingTime } from '../utils/readingTime';
 
 interface FAQItem {
@@ -82,6 +83,10 @@ const schema = faqSchema ? [articleSchema, faqSchema] : articleSchema;
 
 const pageTitle = seo?.title || `${title} | Pythia Insights`;
 const pageDescription = seo?.description || description;
+
+// Compute full URL for sharing
+const siteUrl = "https://pythiainsights.com";
+const pageUrl = Astro.url.pathname ? `${siteUrl}${Astro.url.pathname}` : siteUrl;
 ---
 
 <Layout 
@@ -107,6 +112,9 @@ const pageDescription = seo?.description || description;
         <slot />
       </div>
       <footer class="guide-footer">
+        <div class="share-section">
+          <ShareButtons title={title} url={pageUrl} description={description} />
+        </div>
         <div class="cta-box">
           <h3>Ready to Talk Financials?</h3>
           <p>Schedule a free consultation to discuss how Pythia Insights can help your business.</p>
@@ -223,6 +231,12 @@ const pageDescription = seo?.description || description;
   .guide-footer {
     margin-top: 4rem;
     max-width: 800px;
+  }
+  
+  .share-section {
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    border-top: 1px solid var(--border);
   }
   
   .cta-box {

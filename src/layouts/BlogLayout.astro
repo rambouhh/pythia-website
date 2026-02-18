@@ -1,6 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ShareButtons from '../components/ShareButtons.astro';
 import { formatReadingTime } from '../utils/readingTime';
 
 interface Props {
@@ -18,6 +19,10 @@ interface Props {
 
 const { frontmatter, readingTime, slug } = Astro.props;
 const { title, description, pubDate, author = "Eric", tags = [], image } = frontmatter;
+
+// Compute full URL for sharing
+const siteUrl = "https://pythiainsights.com";
+const pageUrl = slug ? `${siteUrl}/blog/${slug}/` : Astro.url.href;
 
 // Breadcrumb items
 const breadcrumbItems = [
@@ -85,14 +90,19 @@ const schema = {
   </div>
 
   <footer class="article-footer">
-    <div class="author-info">
-      <div class="author-avatar">E</div>
-      <div>
-        <div class="author-name">{author}</div>
-        <div class="author-role">Pythia Insights</div>
-      </div>
+    <div class="footer-top">
+      <ShareButtons title={title} url={pageUrl} description={description || ''} />
     </div>
-    <a href="/contact" class="btn-primary">Work Together</a>
+    <div class="footer-bottom">
+      <div class="author-info">
+        <div class="author-avatar">E</div>
+        <div>
+          <div class="author-name">{author}</div>
+          <div class="author-role">Pythia Insights</div>
+        </div>
+      </div>
+      <a href="/contact" class="btn-primary">Work Together</a>
+    </div>
   </footer>
 </article>
 
@@ -268,6 +278,15 @@ const schema = {
     margin: 0 auto;
     padding: 2rem 1.5rem;
     border-top: 1px solid var(--border);
+  }
+
+  .footer-top {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .footer-bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -306,7 +325,7 @@ const schema = {
 
   @media (max-width: 768px) {
     .blog-article { padding-top: 6rem; }
-    .article-footer { justify-content: center; text-align: center; }
+    .footer-bottom { justify-content: center; text-align: center; }
     .author-info { flex-direction: column; }
   }
 </style>
