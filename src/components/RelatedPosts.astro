@@ -1,0 +1,174 @@
+---
+/**
+ * RelatedPosts Component
+ * 
+ * Displays 2-3 related blog posts at the bottom of articles.
+ * Finds related posts by matching tags or category.
+ */
+
+interface Post {
+  slug: string;
+  data: {
+    title: string;
+    description?: string;
+    pubDate?: Date;
+    category?: string;
+    tags?: string[];
+  };
+}
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+
+// Don't render if no related posts
+if (!posts || posts.length === 0) {
+  return;
+}
+---
+
+<aside class="related-posts">
+  <h2 class="related-title">
+    <span class="title-icon">→</span>
+    Keep Reading
+  </h2>
+  <div class="related-grid">
+    {posts.slice(0, 3).map((post) => (
+      <a href={`/blog/${post.slug}/`} class="related-card">
+        <div class="related-meta">
+          {post.data.pubDate && (
+            <time datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric',
+                year: 'numeric'
+              })}
+            </time>
+          )}
+          {post.data.category && (
+            <span class="related-category">{post.data.category}</span>
+          )}
+        </div>
+        <h3>{post.data.title}</h3>
+        {post.data.description && (
+          <p class="related-desc">{post.data.description.slice(0, 100)}...</p>
+        )}
+        <span class="read-link">Read article →</span>
+      </a>
+    ))}
+  </div>
+</aside>
+
+<style>
+  .related-posts {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .related-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+
+  .title-icon {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .related-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .related-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
+
+  .related-card {
+    display: block;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .related-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .related-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+  }
+
+  .related-category {
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .related-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+
+  .related-card:hover h3 {
+    color: var(--accent);
+  }
+
+  .related-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .read-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+
+  .related-card:hover .read-link {
+    opacity: 1;
+  }
+
+  @media (max-width: 640px) {
+    .related-posts {
+      padding: 2rem 1.5rem 3rem;
+    }
+    
+    .related-card {
+      padding: 1.25rem;
+    }
+    
+    .related-card h3 {
+      font-size: 1rem;
+    }
+  }
+</style>

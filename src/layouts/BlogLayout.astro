@@ -2,7 +2,19 @@
 import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ShareButtons from '../components/ShareButtons.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import { formatReadingTime } from '../utils/readingTime';
+
+interface RelatedPost {
+  slug: string;
+  data: {
+    title: string;
+    description?: string;
+    pubDate?: Date;
+    category?: string;
+    tags?: string[];
+  };
+}
 
 interface Props {
   frontmatter: {
@@ -15,9 +27,10 @@ interface Props {
   };
   readingTime?: number;
   slug?: string;
+  relatedPosts?: RelatedPost[];
 }
 
-const { frontmatter, readingTime, slug } = Astro.props;
+const { frontmatter, readingTime, slug, relatedPosts = [] } = Astro.props;
 const { title, description, pubDate, author = "Eric", tags = [], image } = frontmatter;
 
 // Compute full URL for sharing
@@ -105,6 +118,10 @@ const schema = {
     </div>
   </footer>
 </article>
+
+{relatedPosts.length > 0 && (
+  <RelatedPosts posts={relatedPosts} />
+)}
 
 </Layout>
 

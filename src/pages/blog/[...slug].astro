@@ -11,15 +11,56 @@ export async function getStaticPaths() {
   
   return posts.map(post => ({
     params: { slug: post.slug },
-    props: { post },
+    props: { post, allPosts: posts },
   }));
 }
 
-const { post } = Astro.props;
+const { post, allPosts } = Astro.props;
 const { Content } = await post.render();
 const readingTime = calculateReadingTime(post.body || '');
+
+// Find related posts by matching tags or category, with fallback to recent posts
+function getRelatedPosts(currentPost: typeof post, posts: typeof allPosts, limit = 3) {
+  const currentTags = currentPost.data.tags || [];
+  const currentCategory = currentPost.data.category;
+  
+  // Get other posts (excluding current)
+  const otherPosts = posts.filter(p => p.slug !== currentPost.slug);
+  
+  // Score each post by relevance
+  const scored = otherPosts
+    .map(p => {
+      let score = 0;
+      const postTags = p.data.tags || [];
+      
+      // +2 points for each matching tag
+      for (const tag of postTags) {
+        if (currentTags.includes(tag)) score += 2;
+      }
+      
+      // +3 points for matching category
+      if (p.data.category && p.data.category === currentCategory) score += 3;
+      
+      return { post: p, score };
+    })
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit);
+  
+  // If we have related posts by tags/category, use those
+  if (scored.length > 0) {
+    return scored.map(item => item.post);
+  }
+  
+  // Fallback: return most recent other posts (sorted by date)
+  return otherPosts
+    .sort((a, b) => (b.data.pubDate?.valueOf() || 0) - (a.data.pubDate?.valueOf() || 0))
+    .slice(0, limit);
+}
+
+const relatedPosts = getRelatedPosts(post, allPosts);
 ---
 
-<BlogLayout frontmatter={post.data} readingTime={readingTime}>
+<BlogLayout frontmatter={post.data} readingTime={readingTime} slug={post.slug} relatedPosts={relatedPosts}>
   <Content />
 </BlogLayout>
