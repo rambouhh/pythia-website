@@ -400,6 +400,174 @@ const pageUrl = canonicalUrl || siteUrl;
     }
     .footer-right { gap: 1.5rem; }
   }
+
+  /* Print styles */
+  @media print {
+    /* Reset colors for print */
+    :root {
+      --bg: #ffffff;
+      --bg-elevated: #ffffff;
+      --bg-card: #f5f5f5;
+      --border: #cccccc;
+      --border-accent: #999999;
+      --text: #000000;
+      --text-muted: #333333;
+      --text-dim: #666666;
+      --accent: #006644;
+      --accent-dim: transparent;
+      --accent-glow: transparent;
+    }
+
+    /* Hide non-essential elements */
+    nav,
+    footer,
+    .skip-link,
+    .hero-glow,
+    .hero-grid-bg,
+    .share-buttons,
+    .related-posts,
+    .btn-primary,
+    .btn-ghost,
+    .mobile-toggle,
+    .footer-cta,
+    .toc-container,
+    .article-tags {
+      display: none !important;
+    }
+
+    /* Remove body grain overlay */
+    body::after {
+      display: none !important;
+    }
+
+    /* Reset backgrounds */
+    body {
+      background: white !important;
+      color: black !important;
+      font-size: 12pt;
+      line-height: 1.5;
+    }
+
+    main {
+      padding: 0 !important;
+    }
+
+    /* Article-specific print styles */
+    .blog-article,
+    .guide-article {
+      padding-top: 0 !important;
+    }
+
+    .article-header {
+      padding: 0 0 1.5em !important;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 1.5em;
+    }
+
+    .article-content {
+      padding: 0 !important;
+      max-width: 100% !important;
+    }
+
+    .article-footer {
+      display: none !important;
+    }
+
+    /* Typography for print */
+    h1 { 
+      font-size: 24pt !important;
+      margin-bottom: 0.5em !important;
+    }
+
+    h2 { 
+      font-size: 18pt !important;
+      margin-top: 1.5em !important;
+      page-break-after: avoid;
+    }
+
+    h3 { 
+      font-size: 14pt !important;
+      margin-top: 1em !important;
+      page-break-after: avoid;
+    }
+
+    p, li {
+      font-size: 11pt !important;
+      orphans: 3;
+      widows: 3;
+    }
+
+    /* Show URLs after links */
+    a[href^="http"]:after {
+      content: " (" attr(href) ")";
+      font-size: 9pt;
+      color: #666;
+      word-break: break-all;
+    }
+
+    /* Don't show URL for internal links */
+    a[href^="/"]:after,
+    a[href^="#"]:after {
+      content: none;
+    }
+
+    /* Tables */
+    table {
+      border-collapse: collapse !important;
+      width: 100% !important;
+    }
+
+    th, td {
+      border: 1px solid #ccc !important;
+      padding: 0.5em !important;
+      text-align: left !important;
+    }
+
+    th {
+      background: #f0f0f0 !important;
+    }
+
+    /* Code blocks */
+    pre, code {
+      background: #f5f5f5 !important;
+      border: 1px solid #ddd !important;
+      font-size: 9pt !important;
+    }
+
+    pre {
+      white-space: pre-wrap !important;
+      word-wrap: break-word !important;
+      page-break-inside: avoid;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      border-left: 3px solid #666 !important;
+      padding-left: 1em !important;
+      margin: 1em 0 !important;
+      font-style: italic;
+    }
+
+    /* Page breaks */
+    img, table, blockquote, pre {
+      page-break-inside: avoid;
+    }
+
+    /* Print header (site name) */
+    .article-header::before {
+      content: "pythia/insights";
+      display: block;
+      font-family: monospace;
+      font-size: 10pt;
+      color: #666;
+      margin-bottom: 1em;
+    }
+
+    /* Print margins */
+    @page {
+      margin: 2cm;
+    }
+  }
 </style>
 
 <script>
