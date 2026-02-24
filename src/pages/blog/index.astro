@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import { calculateReadingTime, formatReadingTime } from '../../utils/readingTime';
 
 const posts = await getCollection('blog', ({ data }) => {
@@ -84,6 +85,10 @@ const sortedPosts = await Promise.all(
       <p class="empty-sub">In the meantime, <a href="/contact">let's talk</a> about your financial infrastructure.</p>
     </div>
   )}
+</section>
+
+<section class="newsletter-section">
+  <NewsletterSignup />
 </section>
 
 </Layout>
@@ -280,9 +285,17 @@ const sortedPosts = await Promise.all(
     color: var(--accent);
   }
 
+  /* Newsletter section */
+  .newsletter-section {
+    padding: 3rem 1.5rem 4rem;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
   @media (max-width: 768px) {
     .hero-mini { padding: 8rem 1.5rem 3rem; }
     .post-card { padding: 1.5rem; }
     .post-card h2 { font-size: 1.25rem; }
+    .newsletter-section { padding: 2rem 1.5rem 3rem; }
   }
 </style>

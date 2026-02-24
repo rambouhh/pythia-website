@@ -1,0 +1,231 @@
+---
+interface Props {
+  variant?: 'default' | 'compact';
+  title?: string;
+  description?: string;
+}
+
+const { 
+  variant = 'default',
+  title = "Get financial insights in your inbox",
+  description = "Practical strategies for code-native finance, FP&A, and building analytical infrastructure. No spam, unsubscribe anytime."
+} = Astro.props;
+
+// Uses Formspree - can be swapped for ConvertKit/Mailchimp later
+const formAction = "https://formspree.io/f/newsletter"; // Placeholder - update with real form ID
+---
+
+<div class:list={['newsletter-signup', variant]}>
+  <div class="newsletter-content">
+    <div class="newsletter-icon">📬</div>
+    <h3 class="newsletter-title">{title}</h3>
+    <p class="newsletter-desc">{description}</p>
+  </div>
+  
+  <form class="newsletter-form" action={formAction} method="POST">
+    <div class="form-row">
+      <div class="input-wrapper">
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="you@company.com" 
+          required 
+          autocomplete="email"
+          aria-label="Email address"
+        />
+      </div>
+      <button type="submit" class="subscribe-btn">
+        Subscribe
+        <span class="btn-arrow">→</span>
+      </button>
+    </div>
+    <p class="form-note">
+      <span class="lock-icon">🔒</span>
+      No spam. Unsubscribe anytime.
+    </p>
+  </form>
+</div>
+
+<style>
+  .newsletter-signup {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .newsletter-signup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--cyan));
+  }
+
+  .newsletter-content {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .newsletter-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .newsletter-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .newsletter-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .input-wrapper {
+    flex: 1;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+  }
+
+  .newsletter-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-dim);
+  }
+
+  .newsletter-form input::placeholder {
+    color: var(--text-dim);
+  }
+
+  .subscribe-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+
+  .subscribe-btn:hover {
+    background: var(--accent-bright);
+    transform: translateY(-1px);
+  }
+
+  .btn-arrow {
+    transition: transform 0.3s;
+  }
+
+  .subscribe-btn:hover .btn-arrow {
+    transform: translateX(3px);
+  }
+
+  .form-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .lock-icon {
+    font-size: 0.7rem;
+  }
+
+  /* Compact variant */
+  .newsletter-signup.compact {
+    padding: 1.5rem;
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .compact .newsletter-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+
+  .compact .newsletter-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .compact .newsletter-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .compact .newsletter-desc {
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .newsletter-signup {
+      padding: 1.5rem;
+    }
+
+    .form-row {
+      flex-direction: column;
+    }
+
+    .subscribe-btn {
+      width: 100%;
+    }
+
+    .newsletter-title {
+      font-size: 1.25rem;
+    }
+
+    .compact .newsletter-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
