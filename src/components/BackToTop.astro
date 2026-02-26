@@ -1,0 +1,169 @@
+---
+/**
+ * Back to Top Button
+ * 
+ * Floating button that appears when user scrolls down the page.
+ * Smooth scrolls back to top when clicked.
+ * 
+ * Props:
+ * - threshold: number of pixels scrolled before button appears (default: 400)
+ * - ariaLabel: accessibility label (default: "Back to top")
+ */
+
+interface Props {
+  threshold?: number;
+  ariaLabel?: string;
+}
+
+const { threshold = 400, ariaLabel = "Back to top" } = Astro.props;
+---
+
+<button 
+  class="back-to-top" 
+  aria-label={ariaLabel}
+  data-threshold={threshold}
+>
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="20" 
+    height="20" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    stroke-width="2" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+  >
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>
+
+<style>
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+    
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--text-muted);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    
+    /* Subtle shadow for depth */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover {
+    background: var(--accent-dim);
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 229, 160, 0.2);
+  }
+
+  .back-to-top:active {
+    transform: translateY(0);
+  }
+
+  .back-to-top:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .back-to-top svg {
+    transition: transform 0.2s ease;
+  }
+
+  .back-to-top:hover svg {
+    transform: translateY(-2px);
+  }
+
+  /* Hide on very small screens or adjust position */
+  @media (max-width: 480px) {
+    .back-to-top {
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .back-to-top {
+      transition: opacity 0.3s ease;
+      transform: none;
+    }
+
+    .back-to-top:hover {
+      transform: none;
+    }
+
+    .back-to-top svg {
+      transition: none;
+    }
+
+    .back-to-top:hover svg {
+      transform: none;
+    }
+  }
+
+  /* Print: hide the button */
+  @media print {
+    .back-to-top {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Back to top functionality
+  const button = document.querySelector('.back-to-top') as HTMLButtonElement;
+  
+  if (button) {
+    const threshold = parseInt(button.dataset.threshold || '400', 10);
+    
+    // Show/hide based on scroll position
+    const toggleVisibility = () => {
+      if (window.scrollY > threshold) {
+        button.classList.add('visible');
+      } else {
+        button.classList.remove('visible');
+      }
+    };
+
+    // Smooth scroll to top
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+
+    // Event listeners
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    button.addEventListener('click', scrollToTop);
+    
+    // Check initial state
+    toggleVisibility();
+  }
+</script>

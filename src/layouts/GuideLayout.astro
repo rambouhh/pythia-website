@@ -3,6 +3,7 @@ import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareButtons from '../components/ShareButtons.astro';
+import BackToTop from '../components/BackToTop.astro';
 import { formatReadingTime } from '../utils/readingTime';
 
 interface FAQItem {
@@ -123,6 +124,7 @@ const pageUrl = Astro.url.pathname ? `${siteUrl}${Astro.url.pathname}` : siteUrl
       </footer>
     </div>
   </article>
+  <BackToTop />
 </Layout>
 
 <style>

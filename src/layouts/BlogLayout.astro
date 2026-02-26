@@ -3,6 +3,7 @@ import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
+import BackToTop from '../components/BackToTop.astro';
 import { formatReadingTime } from '../utils/readingTime';
 
 interface RelatedPost {
@@ -122,6 +123,8 @@ const schema = {
 {relatedPosts.length > 0 && (
   <RelatedPosts posts={relatedPosts} />
 )}
+
+<BackToTop />
 
 </Layout>
 
