@@ -25,7 +25,9 @@ const {
 
 const fullTitle = title?.includes("Pythia") ? title : `${title || "Pythia Insights"} | Pythia Insights`;
 const siteUrl = "https://pythiainsights.com";
-const ogImageUrl = ogImage ? (ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`) : null;
+const ogImageUrl = ogImage 
+  ? (ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`) 
+  : `${siteUrl}/og-default.png`;
 const pageUrl = canonicalUrl || siteUrl;
 ---
 
